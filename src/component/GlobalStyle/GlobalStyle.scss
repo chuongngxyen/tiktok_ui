@@ -3,6 +3,7 @@
 
 :root {
   --primary: #ff3b5c;
+  --text-color: #333;
 }
 * {
   box-sizing: border-box;
@@ -19,4 +20,16 @@ body {
   font-size: 1.6rem;
   line-height: 1.5;
   text-rendering: optimizeSpeed;
+}
+
+input,
+button,
+[tabindex] {
+  outline: none;
+  border: none;
+}
+
+a[href] {
+  color: var(--text-color);
+  text-decoration: none;
 }
