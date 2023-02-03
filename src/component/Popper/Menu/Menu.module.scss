@@ -1,0 +1,21 @@
+//----------Menu-item----------
+.menu-list {
+  width: 224px;
+
+  .menu-item {
+    margin-left: 0px;
+    width: 100%;
+    justify-content: flex-start;
+    font-weight: 500;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    &:hover {
+      background: rgba(22, 24, 35, 0.03);
+    }
+  }
+}
+
+.menu-popper {
+  padding-bottom: 8px;
+}
+
+// --------------------------------

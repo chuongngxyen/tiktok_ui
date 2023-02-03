@@ -20,7 +20,14 @@
 .logo {
   display: flex;
 }
-
+.more-btn {
+  font-size: 20px;
+  margin-left: 16px;
+  color: #161823;
+  background-color: transparent;
+  cursor: pointer;
+  padding: 4px 8px;
+}
 // ------------SEARCH----------------
 .search-result,
 .search {

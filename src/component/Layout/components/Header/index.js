@@ -1,15 +1,34 @@
 import { useState, useEffect } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCircleXmark, faSpinner, faMagnifyingGlass, faPlus } from "@fortawesome/free-solid-svg-icons";
+import { faCircleXmark, faSpinner, faMagnifyingGlass, faPlus, faEllipsisVertical, faEarthAsia, faCircleQuestion, faKeyboard } from "@fortawesome/free-solid-svg-icons";
 import Tippy from '@tippyjs/react/headless';
 import classNames from "classnames/bind";
 
+import Menu from "~/component/Popper/Menu";
 import Button from "~/component/Button";
 import { Wrapper as PopperWrapper } from "~/component/Popper";
 import styles from "./Header.module.scss"
 import images from "~/assets/images";
 import { AccountItem } from "~/component/AccountItem";
+
+
 const cx = classNames.bind(styles)
+
+const MENU_ITEMS = [
+    {
+        icon: <FontAwesomeIcon icon={faEarthAsia} />,
+        title: 'English'
+    },
+    {
+        icon: <FontAwesomeIcon icon={faCircleQuestion} />,
+        title: 'Feedback and help',
+        to: '/feedback'
+    },
+    {
+        icon: <FontAwesomeIcon icon={faKeyboard} />,
+        title: 'Keyboard shortcuts'
+    },
+]
 function Header() {
     const [searchResult, setsearchResult] = useState([]);
     useEffect(() => {
@@ -48,11 +67,16 @@ function Header() {
                 </Tippy>
                 <div className={cx('action')}>
                     <Button text><FontAwesomeIcon icon={faPlus} className={cx('plus-icon')} />Upload</Button>
-
                     <Button primary>Log in</Button>
+                    <Menu
+                        item={MENU_ITEMS}>
+                        <button className={cx('more-btn')}>
+                            <FontAwesomeIcon icon={faEllipsisVertical} />
+                        </button>
+                    </Menu>
                 </div>
             </div>
-        </div>
+        </div >
     );
 }
 

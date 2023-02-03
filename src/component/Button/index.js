@@ -16,6 +16,8 @@ function Button({
     text = false,
     rounded = false,
     disabled = false,
+    lefticon,
+    righticon,
     children, ...passProp }) {
     let Comp = 'button'
     const props = {
@@ -33,8 +35,8 @@ function Button({
     }
 
     if (to) {
-        Comp = Link
         props.to = to
+        Comp = Link
     }
     else if (href) {
         Comp = 'a'
@@ -51,8 +53,10 @@ function Button({
         rounded
     })
     return (
-        <Comp className={classes} {...passProp}>
-            <span>{children}</span>
+        <Comp className={classes} {...props}>
+            {lefticon && <div className={cx('icon')}>{lefticon}</div>}
+            <span className={cx('title')}>{children}</span>
+            {righticon && <div className={cx('icon')}>{righticon}</div>}
         </Comp>
     );
 }
