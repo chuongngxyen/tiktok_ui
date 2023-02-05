@@ -29,84 +29,57 @@
   cursor: pointer;
   padding: 4px 8px;
 }
-// ------------SEARCH----------------
-.search-result,
-.search {
-  width: 361px;
-}
-.search {
-  position: relative;
-  height: var(--search-height);
-  padding-left: 16px;
-  background: rgba(22, 24, 35, 0.06);
-  border-radius: 92px;
-  display: flex;
-  border: 1.5px solid transparent;
-  input {
-    flex: 1;
-    height: 100%;
-    font-size: 16px;
-    color: #000000;
-    border: none;
-    outline: none;
-    background-color: transparent;
-    caret-color: var(--primary);
-  }
-
-  input:not(:placeholder-shown) ~ .search-btn {
-    color: rgba(22, 24, 35, 0.75);
-  }
-
-  //Thanh spacer giua search va input
-  &::after {
-    content: '';
-    position: absolute;
-    top: var(--search-top-spacer);
-    right: var(--width-search-btn);
-    width: 1px;
-    height: calc(var(--search-height) - var(--search-top-spacer) * 2);
-    background-color: rgba(16, 18, 27, 0.12);
-  }
-
-  &:focus-within {
-    border-color: rgba(22, 24, 35, 1);
-  }
-}
-
-.clear,
-.spinner {
-  color: rgba(22, 24, 35, 0.34);
-  position: absolute;
-  right: calc(var(--width-search-btn) + 16px);
-  top: 50%;
-  transform: translateY(-50%);
-}
-
-.search-btn {
-  width: var(--width-search-btn);
-  height: 100%;
-  border-top-right-radius: 92px;
-  border-bottom-right-radius: 92px;
-  color: rgba(22, 24, 35, 0.34);
-  font-size: 1.9rem;
-  &:hover {
-    background: rgba(22, 24, 35, 0.03);
-  }
-  &:active {
-    background: rgba(22, 24, 35, 0.06);
-  }
-}
-//---------------------------------
-//----------Search-result----------
-.account-title {
-  height: 30px;
-  padding: 5px 12px;
-  font-size: 14px;
-  line-height: 20px;
-  font-weight: 600;
-  color: rgba(22, 24, 35, 0.5);
-}
 // --------------------------------
+// ------------ACTION--------------
+.action {
+  display: flex;
+  align-items: center;
+}
+.user-message,
+.user-inbox,
+.create-effect-icon {
+  background-color: transparent;
+  font-size: 25px;
+  width: 26px;
+  height: 26px;
+  margin-left: 25px;
+}
+.user-inbox {
+  margin-left: 12px;
+}
+.create-effect-icon {
+  padding-top: 16px;
+  margin-right: -5px;
+  margin-left: 2px;
+}
+.user-inbox {
+  margin-bottom: 5px;
+  margin-right: 20px;
+  margin-left: 19px;
+}
+.badge {
+  position: relative;
+  top: -52px;
+  right: -12px;
+  padding: 0px 6px;
+  height: 20px;
+  line-height: 20px;
+  border-radius: 50%;
+  font-size: 14px;
+  font-weight: 600;
+  color: white;
+  font-family: 'ProximaNova', sans-serif;
+  background-color: var(--primary);
+}
+.user-avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-left: 25px;
+  background-color: transparent;
+  cursor: pointer;
+}
 .plus-icon {
   margin-right: 10px;
 }

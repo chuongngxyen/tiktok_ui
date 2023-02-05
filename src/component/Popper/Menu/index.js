@@ -40,7 +40,8 @@ function Menu({ children, item = [], onChange = nonFn }) {
                         {renderitem()}
                     </PopperWrapper>
                 </div>
-            )}>
+            )}
+            onHide={() => sethistory(pre => pre.slice(0, 1))}>
             {children}
         </Tippy>);
 }

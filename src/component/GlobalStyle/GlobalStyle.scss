@@ -1,5 +1,4 @@
 @import 'normalize.css';
-@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@600&display=swap');
 
 :root {
   --primary: #ff3b5c;
@@ -12,12 +11,38 @@
   padding: 0;
 }
 
+//FONT set
+
+@font-face {
+  font-family: SofiaPro;
+  src: url(/assets/fonts/sofiapro-bold.woff2);
+  font-weight: 700;
+}
+
+@font-face {
+  font-family: ProximaNova;
+  src: url(/assets/fonts/Proxima-Nova-Regular.woff2);
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: ProximaNova;
+  src: url(/assets/fonts/Proxima-Nova-Semibold.woff2);
+  font-weight: 600;
+}
+
+@font-face {
+  font-family: ProximaNova;
+  src: url(/assets/fonts/Proxima-Nova-Bold.woff2);
+  font-weight: 700;
+}
+
 html {
   font-size: 62.5%;
 }
 
 body {
-  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-family: 'ProximaNova', sans-serif;
   font-size: 1.6rem;
   line-height: 1.5;
   text-rendering: optimizeSpeed;
@@ -33,4 +58,20 @@ button,
 a[href] {
   color: var(--text-color);
   text-decoration: none;
+}
+//Tippy tooltip
+body {
+  .tippy-box {
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 22px;
+    background-color: rgba(84, 84, 84, 0.92);
+    color: rgb(255, 255, 255);
+  }
+
+  .tippy-arrow {
+    color: rgba(84, 84, 84, 0.92);
+  }
 }
