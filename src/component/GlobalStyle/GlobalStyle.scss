@@ -4,6 +4,7 @@
   --primary: #ff3b5c;
   --text-color: #333;
   --default-layout-horizontal-spacer: 24px;
+  --font-ProximaNova: 'ProximaNova', sans-serif;
 }
 * {
   box-sizing: border-box;
@@ -11,7 +12,7 @@
   padding: 0;
 }
 
-//FONT set
+//---------------FONT set------------------
 
 @font-face {
   font-family: SofiaPro;
@@ -36,15 +37,49 @@
   src: url(/assets/fonts/Proxima-Nova-Bold.woff2);
   font-weight: 700;
 }
+//---------------------------------------------------
+//---------------------SCROLLBAR---------------------
+html *::-webkit-scrollbar {
+  border-radius: 0;
+  width: 8px;
+}
+
+html *::-webkit-scrollbar {
+  border-radius: 0;
+  width: 8px;
+}
+
+html *::-webkit-scrollbar-thumb {
+  border-radius: 4px;
+  background-color: rgba(22, 24, 35, 0.06);
+}
+
+html *::-webkit-scrollbar-thumb {
+  border-radius: 4px;
+  background-color: rgba(22, 24, 35, 0.06);
+}
+
+html *::-webkit-scrollbar-track {
+  border-radius: 0;
+  background-color: rgba(0, 0, 0, 0);
+}
+
+html *::-webkit-scrollbar-track {
+  border-radius: 0;
+  background-color: rgba(0, 0, 0, 0);
+}
+//---------------------------------------------------
 
 html {
   font-size: 62.5%;
 }
 
 body {
-  font-family: 'ProximaNova', sans-serif;
+  font-family: var(--font-ProximaNova);
+  min-height: 100vh;
   font-size: 1.6rem;
   line-height: 1.5;
+  overflow-y: overlay;
   text-rendering: optimizeSpeed;
 }
 

@@ -31,13 +31,16 @@ function Menu({ children, item = [], onChange = nonFn }) {
             delay={[0, 700]}
             interactive
             placement="bottom-end"
+            hideOnClick={false}
             render={attrs => (
                 <div className={cx('menu-list')} tabIndex="-1" {...attrs} >
                     <PopperWrapper className={cx('menu-popper')}>
                         {history.length > 1 && <Header title={'Language'} onBack={() => {
                             sethistory(pre => pre.slice(0, pre.length - 1))
                         }} />}
-                        {renderitem()}
+                        <div className={cx('body-item')}>
+                            {renderitem()}
+                        </div>
                     </PopperWrapper>
                 </div>
             )}

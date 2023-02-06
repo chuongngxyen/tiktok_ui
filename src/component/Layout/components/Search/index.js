@@ -8,7 +8,7 @@ import styles from "./Search.module.scss"
 import { Wrapper as PopperWrapper } from "~/component/Popper";
 import { AccountItem } from "~/component/AccountItem";
 import { useDebounce } from '~/hooks';
-import * as searchAPI from '~/apiServices/searchApi';
+import * as searchAPI from '~/services/searchApi';
 const cx = classNames.bind(styles)
 
 function Search() {
@@ -38,7 +38,10 @@ function Search() {
     }, [debounce]);
 
     const handleChangeinput = e => {
-        setSearchvalue(e.target.value)
+        const searchValue = e.target.value
+        if (!searchValue.startsWith(' ')) {
+            setSearchvalue(e.target.value)
+        }
     }
 
     const handleClearClick = () => {
@@ -52,41 +55,45 @@ function Search() {
     }
 
     return (
-        <HeadlessTippy interactive
-            visible={showResult && searchResult.length > 0}
-            render={attrs => (
-                <div className={cx('search-result')} tabIndex="-1" {...attrs} >
-                    <PopperWrapper>
-                        <h4 className={cx('account-title')}>Account</h4>
-                        {searchResult.map((result) => {
-                            return <AccountItem key={result.id} data={result} />
-                        })}
-                    </PopperWrapper>
-                </div>
-            )}
-            onClickOutside={handleshowResult}
-        >
-            <div className={cx('search')}>
-                <input
-                    onFocus={() => { setshowResult(true) }}
-                    ref={inputRef}
-                    value={searchValue}
-                    type={'text'}
-                    spellCheck={false}
-                    placeholder="Search account and videos"
-                    onChange={e => { handleChangeinput(e) }} />
-                {!!searchValue && !loading &&
+        //tippy warning
+        <div>
+            <HeadlessTippy
+                interactive
+                visible={showResult && searchResult.length > 0}
+                render={attrs => (
+                    <div className={cx('search-result')} tabIndex="-1" {...attrs} >
+                        <PopperWrapper>
+                            <h4 className={cx('account-title')}>Account</h4>
+                            {searchResult.map((result) => {
+                                return <AccountItem key={result.id} data={result} />
+                            })}
+                        </PopperWrapper>
+                    </div>
+                )}
+                onClickOutside={handleshowResult}
+            >
+                <div className={cx('search')}>
+                    <input
+                        onFocus={() => { setshowResult(true) }}
+                        ref={inputRef}
+                        value={searchValue}
+                        type={'text'}
+                        spellCheck={false}
+                        placeholder="Search accounts and videos"
+                        onChange={e => { handleChangeinput(e) }} />
+                    {!!searchValue && !loading &&
 
-                    <button onClick={handleClearClick} className={cx('clear')}>
-                        <FontAwesomeIcon icon={faCircleXmark} />
+                        <button onClick={handleClearClick} className={cx('clear')}>
+                            <FontAwesomeIcon icon={faCircleXmark} />
+                        </button>
+                    }
+                    {loading && <FontAwesomeIcon className={cx('loading')} icon={faSpinner} />}
+                    <button className={cx('search-btn')} onMouseDown={e => { e.preventDefault() }}>
+                        <FontAwesomeIcon icon={faMagnifyingGlass} />
                     </button>
-                }
-                {loading && <FontAwesomeIcon className={cx('loading')} icon={faSpinner} />}
-                <button className={cx('search-btn')}>
-                    <FontAwesomeIcon icon={faMagnifyingGlass} />
-                </button>
-            </div>
-        </HeadlessTippy>);
+                </div>
+            </HeadlessTippy>
+        </div>);
 }
 
 export default Search;

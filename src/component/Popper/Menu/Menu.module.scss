@@ -1,13 +1,17 @@
 //----------Menu-item----------
 .menu-list {
-  width: 224px;
+  width: 223px;
 
+  .body-item {
+    overflow-y: auto;
+    overflow-x: hidden;
+  }
   .menu-item {
     margin-left: 0px;
     width: 100%;
     justify-content: flex-start;
     font-weight: 600;
-    font-family: 'ProximaNova', sans-serif;
+    font-family: var(--font-ProximaNova);
     height: 42px;
 
     &.separate {

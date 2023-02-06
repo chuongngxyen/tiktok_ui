@@ -2,6 +2,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlus, faEllipsisVertical, faEarthAsia, faCircleQuestion, faKeyboard, faCoins, faCamera, faGear, faRightFromBracket, faUser } from "@fortawesome/free-solid-svg-icons";
 import Tippy from '@tippyjs/react';
 import "tippy.js/dist/tippy.css"
+import { Link } from "react-router-dom";
 import classNames from "classnames/bind";
 
 import Menu from "~/component/Popper/Menu";
@@ -11,6 +12,7 @@ import images from "~/assets/images";
 import { CreateEffectIcon, InboxIcon, MessageIcon } from "~/component/Icon";
 import Image from "~/component/Image";
 import Search from "../Search";
+import routesConfig from '~/config/routes'
 
 const cx = classNames.bind(styles)
 
@@ -29,7 +31,6 @@ const MENU_ITEMS = [
                 type: 'language',
                 title: 'English',
             },
-
         ]
     },
     {
@@ -85,7 +86,7 @@ function Header() {
     return (
         <div className={cx('wrapper')}>
             <div className={cx('content')}>
-                <Image src={images.logo} className={cx('logo')} alt="TikTok" />
+                <Link to={routesConfig.home}><Image src={images.logo} className={cx('logo')} alt="TikTok" /></Link>
                 <Search></Search>
                 <div className={cx('action')}>
                     <Button text to={'/upload'}><FontAwesomeIcon icon={faPlus} className={cx('plus-icon')} />Upload</Button>
