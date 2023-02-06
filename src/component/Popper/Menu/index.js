@@ -1,6 +1,7 @@
 import classNames from "classnames/bind";
 import Tippy from "@tippyjs/react/headless";
 import { useState } from "react";
+import PropTypes from 'prop-types'
 
 import { Wrapper as PopperWrapper } from "~/component/Popper";
 import styles from "./Menu.module.scss"
@@ -48,5 +49,8 @@ function Menu({ children, item = [], onChange = nonFn }) {
             {children}
         </Tippy>);
 }
-
+Menu.propTypes = {
+    children: PropTypes.node.isRequired,
+    item: PropTypes.array,
+}
 export default Menu;

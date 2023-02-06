@@ -12,7 +12,7 @@ import images from "~/assets/images";
 import { CreateEffectIcon, InboxIcon, MessageIcon } from "~/component/Icon";
 import Image from "~/component/Image";
 import Search from "../Search";
-import routesConfig from '~/config/routes'
+import config from '~/config'
 
 const cx = classNames.bind(styles)
 
@@ -86,10 +86,10 @@ function Header() {
     return (
         <div className={cx('wrapper')}>
             <div className={cx('content')}>
-                <Link to={routesConfig.home}><Image src={images.logo} className={cx('logo')} alt="TikTok" /></Link>
+                <Link to={config.routes.home}><Image src={images.logo} className={cx('logo')} alt="TikTok" /></Link>
                 <Search></Search>
                 <div className={cx('action')}>
-                    <Button text to={'/upload'}><FontAwesomeIcon icon={faPlus} className={cx('plus-icon')} />Upload</Button>
+                    <Button text to={config.routes.upload}><FontAwesomeIcon icon={faPlus} className={cx('plus-icon')} />Upload</Button>
                     {currenUser ? (
                         <>
                             <Tippy placement="bottom" content="Messages" >

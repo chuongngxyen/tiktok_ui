@@ -1,3 +1,4 @@
+import Proptypes from "prop-types"
 import classNames from "classnames/bind";
 import { forwardRef } from "react";
 import { Link } from "react-router-dom";
@@ -62,5 +63,18 @@ const Button = forwardRef(({
         </Comp>
     );
 })
-
+Button.propTypes = {
+    onClick: Proptypes.func,
+    href: Proptypes.string,
+    to: Proptypes.string,
+    className: Proptypes.string,
+    primary: Proptypes.bool,
+    outline: Proptypes.bool,
+    small: Proptypes.bool,
+    large: Proptypes.bool,
+    text: Proptypes.bool,
+    rounded: Proptypes.bool,
+    disabled: Proptypes.bool,
+    children: Proptypes.node.isRequired,
+}
 export default Button;
