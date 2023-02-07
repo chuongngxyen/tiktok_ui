@@ -29,9 +29,10 @@
 
 .primary {
   min-width: 100px;
+  min-height: 44px;
   border-radius: 4px;
   background-color: var(--primary);
-  color: white;
+  color: white !important;
   &:hover {
     background: linear-gradient(0deg, rgba(0, 0, 0, 0.06), rgba(0, 0, 0, 0.06)), var(--primary);
   }
