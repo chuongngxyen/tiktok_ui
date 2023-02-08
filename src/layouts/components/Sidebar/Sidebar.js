@@ -1,4 +1,5 @@
 import classNames from "classnames/bind";
+import { createContext } from "react";
 
 import Menu from "./Menu";
 import config from "~/config";
@@ -8,7 +9,7 @@ import { LiveIcon, HomeIcon, UserGroupIcon, HomeAcitveIcon, UserGroupAcitveIcon,
 import SuggestedAccount from "~/component/SuggestedAccount";
 
 const cx = classNames.bind(styles)
-
+export const infoContext = createContext()
 function Sidebar() {
     return (
         <aside className={cx('wrapper')}>
@@ -17,7 +18,9 @@ function Sidebar() {
                 <MenuItem title="Following" to={config.routes.following} icon={<UserGroupIcon />} activeIcon={<UserGroupAcitveIcon />}></MenuItem>
                 <MenuItem title="LIVE" to={config.routes.LIVE} icon={<LiveIcon />} activeIcon={<LiveAcitveIcon />}></MenuItem>
             </Menu>
-            <SuggestedAccount label="Suggested accounts" />
+            <infoContext.Provider value={true}>
+                <SuggestedAccount label="Suggested accounts" />
+            </infoContext.Provider>
             <SuggestedAccount label="Following accounts" />
 
         </aside>

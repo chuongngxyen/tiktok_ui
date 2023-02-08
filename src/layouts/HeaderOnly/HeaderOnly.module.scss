@@ -1,3 +1,22 @@
 .content {
   margin-top: var(--default-header-height);
 }
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  background-color: white;
+  width: 100%;
+  height: var(--default-header-height);
+  box-shadow: 0px 1px 1px rgb(0 0 0 / 12%);
+  display: flex;
+  justify-content: center;
+}
+.content-header {
+  width: 1150px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 var(--default-layout-horizontal-spacer);
+}

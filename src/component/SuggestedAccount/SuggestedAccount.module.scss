@@ -28,6 +28,7 @@
   display: flex;
   padding: 8px;
   border-radius: 4px;
+  cursor: pointer;
 
   &:hover {
     background: rgba(22, 24, 35, 0.03);
@@ -65,4 +66,72 @@
   border-radius: 50%;
   margin-right: 12px;
 }
+//------------------------------------
+//-------info-account-Wrapper---------
+.account-info {
+  width: 320px;
+}
+.wrapper-account-info {
+  padding: 20px;
+}
+.account-avatar-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 8px;
+  .follow-btn {
+    min-width: 85px;
+    min-height: 25px;
+    font-size: 14px;
+  }
+}
+
+.avatar-account {
+  width: 44px;
+  height: 44px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.account-nickname {
+  display: flex;
+  align-items: center;
+  color: rgb(22, 24, 35);
+  font-family: var(--font-SofiaPro);
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 22px;
+}
+
+.account-name {
+  color: rgb(22, 24, 35);
+  font-family: var(--font-ProximaNova);
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 20px;
+}
+.account-name-- {
+  cursor: pointer;
+}
+.like-follow {
+}
+
+.count {
+  font-weight: 700;
+  margin-right: 6px;
+  font-size: 17px;
+  line-height: 20px;
+  display: inline-block;
+}
+
+.count-title {
+  color: rgba(22, 24, 35, 0.75);
+  font-size: 17px;
+  line-height: 20px;
+  display: inline-block;
+}
+.follower {
+  margin-right: 12px;
+}
+
 //------------------------------------
