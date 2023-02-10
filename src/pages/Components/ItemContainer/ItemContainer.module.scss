@@ -1,0 +1,107 @@
+.wrapper {
+  padding: 20px 0;
+  position: relative;
+  max-width: 692px;
+}
+.wrapper-2 {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: flex-start;
+}
+.image-wrapper {
+  display: inline-block;
+  width: 56px;
+  height: 56px;
+  flex: 0 0 auto;
+}
+
+.image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}
+.owner-content,
+.description,
+.wrapper-music {
+  margin-top: 2px;
+}
+.content {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.des-content {
+  margin-right: 20px;
+  margin-left: 8px;
+}
+
+.owner-content {
+}
+
+.name {
+  color: rgba(22, 24, 35, 1);
+
+  font-family: var(--font-SofiaPro);
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 25px;
+  display: inline-block;
+  margin-right: 4px;
+  &:hover {
+    text-decoration: underline;
+  }
+}
+.check-icon {
+  font-size: 14px;
+  color: rgb(32, 213, 236);
+  margin-left: 2px;
+}
+
+.nickname {
+  color: rgba(22, 24, 35, 1);
+  font-family: var(--font-ProximaNova);
+  font-weight: 400;
+  font-size: 14px;
+  display: inline-block;
+  line-height: 28px;
+}
+
+.description {
+  font-weight: 400;
+}
+.hashtag-des {
+  color: black;
+  font-weight: 700;
+  cursor: pointer;
+  &:hover {
+    text-decoration: underline;
+  }
+}
+.music {
+}
+
+.follow-btn {
+  max-height: 28px;
+  min-width: 86px;
+  font-family: var(--font-ProximaNova);
+  font-size: 16px;
+  line-height: 22px;
+  font-weight: 600;
+}
+.video-wrapper {
+  height: 600px;
+  display: flex;
+  flex-direction: row;
+}
+.video-content {
+  width: auto;
+  position: relative;
+  box-sizing: border-box;
+  background-size: cover;
+  cursor: pointer;
+  border-radius: 8px;
+}
+.wrapper + .wrapper {
+  border-top: 1px solid rgba(22, 24, 35, 0.12);
+}

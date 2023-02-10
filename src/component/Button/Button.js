@@ -18,6 +18,8 @@ const Button = forwardRef(({
     text = false,
     rounded = false,
     disabled = false,
+    discover = false,
+    showmusic = false,
     lefticon,
     righticon,
     children, ...passProp }, ref) => {
@@ -53,7 +55,9 @@ const Button = forwardRef(({
         large,
         text,
         disabled,
-        rounded
+        rounded,
+        discover,
+        showmusic
     })
     return (
         <Comp className={classes} {...props}>
@@ -75,6 +79,8 @@ Button.propTypes = {
     text: Proptypes.bool,
     rounded: Proptypes.bool,
     disabled: Proptypes.bool,
+    discover: Proptypes.bool,
+    showmusic: Proptypes.bool,
     children: Proptypes.node.isRequired,
 }
 export default Button;

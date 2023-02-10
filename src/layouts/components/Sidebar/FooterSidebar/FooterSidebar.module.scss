@@ -1,0 +1,26 @@
+.wrapper {
+  border-top: 1px rgba(22, 24, 35, 0.12) solid;
+  display: flex;
+  flex-direction: column;
+}
+.descriptions {
+  padding-top: 16px;
+}
+.description {
+  display: block;
+  //justify-content: space-evenly;
+  color: rgba(22, 24, 35, 0.5);
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 17px;
+  font-family: var(--font-ProximaNova);
+  a {
+    color: rgba(22, 24, 35, 0.5);
+    margin-left: 10px;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+  margin-bottom: 16px;
+}

@@ -1,4 +1,5 @@
 .menu-wrapper {
+  margin-top: 15px;
 }
 .menu-item {
   display: flex;
@@ -11,6 +12,9 @@
 
   &.active {
     color: var(--primary);
+    .title {
+      color: var(--primary);
+    }
     .icon {
       display: none;
     }
@@ -28,10 +32,12 @@
   margin-left: 8px;
   margin-top: 1px;
   font-family: var(--font-ProximaNova);
+  color: black;
 }
 
 .icon {
   display: flex;
+  color: black;
 }
 
 .active-icon {

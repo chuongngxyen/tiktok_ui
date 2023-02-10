@@ -29,8 +29,10 @@
   max-width: 100%;
   min-height: 1000px;
   display: flex;
+  justify-content: space-between;
   padding: 0 var(--default-layout-horizontal-spacer);
 }
 .content {
   flex: 1;
+  margin-left: calc(356px + 50px);
 }

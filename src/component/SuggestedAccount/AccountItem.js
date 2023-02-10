@@ -59,7 +59,7 @@ function AccountItem() {
                     <div className={cx('item-info')}>
                         <Link to={`/profile`} >
                             <div className={cx('nickname')}>
-                                <h4>chuongngxyen</h4>
+                                <h4 className={cx('nickname-header')}>chuongngxyen</h4>
                                 <FontAwesomeIcon className={cx('check-icon')} icon={faCircleCheck} />
                             </div>
                             <p className={cx('name')}>Chuong Ngxyen</p>

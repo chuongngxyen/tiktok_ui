@@ -1,7 +1,17 @@
-.wrapper {
-  width: 348px;
-  padding-top: 20px;
+.div-scrollbar {
+  overflow-x: hidden;
+  overflow-y: auto;
+  overscroll-behavior-y: contain;
+  perspective: 1px;
+  transform-style: preserve-3d;
+  margin-top: 5px;
   padding-bottom: 26px;
-  padding-left: 8px;
-  margin-left: -18px;
+  margin-left: -13px;
+  perspective-origin: right top;
+  top: 60px;
+  bottom: 0;
+  width: 356px;
+  background: rgba(255, 255, 255, 1);
+  position: fixed;
+  padding-right: 8px;
 }
