@@ -3,15 +3,23 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import classNames from "classnames/bind";
 import { Link } from "react-router-dom";
 import images from "~/assets/images";
+import { videos } from "~/assets/video";
 import Button from "~/component/Button";
+import { useRef, useState } from "react";
 
-import { MusicIcon } from "~/component/Icon";
+import { CommentIcon, LoveAnimationIcon, LoveIcon, MusicIcon, ShareIcon } from "~/component/Icon";
 import styles from "./ItemContainer.module.scss"
 
 const cx = classNames.bind(styles)
 
-const strings = "Hãy cứ vô tư và lạc lạc lạc lạc.... #haycuvotu #xuhuong #xuhuongtitok #nhachay #nhachaymoingay";
+const strings = "Hãy cứ vô tư và lạc lạc lạc lạc lạc.... #haycuvotu #xuhuong #xuhuongtitok #nhachay #nhachaymoingay";
 function ItemContainer() {
+    const [like, setLike] = useState(false)
+    const [animationLove, setAnimationLove] = useState(false)
+    const loveBtn = useRef()
+    const refVideo = useRef()
+
+
     const handleDesciptionHash = (string) => {
         var temps = string.split(" ")
         const findhash = temps.map((temp) => {
@@ -24,7 +32,13 @@ function ItemContainer() {
         }).filter(current => current !== '@')
         return findhash
     }
-
+    const handleLikeVideo = () => {
+        setLike(!like)
+        if (!like) {
+            setTimeout(() => setAnimationLove(false), 300)
+            setAnimationLove(true)
+        }
+    }
     return (
         <div className={cx('wrapper')}>
             <div className={cx('wrapper-2')} >
@@ -54,9 +68,26 @@ function ItemContainer() {
 
             <div className={cx('video-wrapper')}>
                 <div className={cx('video-content')}>
-                    <video></video>
+                    <video ref={refVideo} src={videos.test} className={cx('video')} onDoubleClick={(e) => {
+                        setLike(true)
+                    }}></video>
                 </div>
-                <div className={cx('reaction-content')}></div>
+                <div className={cx('reaction-content')}>
+                    <div className={cx('reaction')}>
+                        <Button ref={loveBtn} className={cx('love-btn', like ? ('love-color-like') : ('love-color-unlike'))} onClick={handleLikeVideo}>{animationLove ? (<LoveAnimationIcon />) : (<LoveIcon />)}</Button>
+                        <strong className={cx('number')}>80K</strong>
+                    </div>
+
+                    <div className={cx('reaction')}>
+                        <Button className={cx('comment-btn')}><CommentIcon /></Button>
+                        <strong className={cx('number')}>10K</strong>
+                    </div>
+                    <div className={cx('reaction')}>
+                        <Button className={cx('share-btn')}><ShareIcon /></Button>
+                        <strong className={cx('number')}>2000</strong>
+                    </div>
+
+                </div>
             </div>
 
         </div>);

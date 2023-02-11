@@ -36,9 +36,6 @@
   margin-left: 8px;
 }
 
-.owner-content {
-}
-
 .name {
   color: rgba(22, 24, 35, 1);
 
@@ -78,8 +75,6 @@
     text-decoration: underline;
   }
 }
-.music {
-}
 
 .follow-btn {
   max-height: 28px;
@@ -90,18 +85,82 @@
   font-weight: 600;
 }
 .video-wrapper {
-  height: 600px;
+  max-height: 600px;
   display: flex;
   flex-direction: row;
+  align-items: flex-end;
 }
 .video-content {
   width: auto;
+  height: 474px;
   position: relative;
   box-sizing: border-box;
   background-size: cover;
   cursor: pointer;
   border-radius: 8px;
+  margin-left: 56px;
+}
+.video {
+  width: 100%;
+  height: 100%;
+  border-radius: 4px;
+  object-fit: cover;
 }
 .wrapper + .wrapper {
   border-top: 1px solid rgba(22, 24, 35, 0.12);
+}
+.reaction-content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  margin-left: 8px;
+  align-items: center;
+}
+.love-btn,
+.share-btn,
+.comment-btn {
+  display: flex;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  align-items: center;
+  transition: all ease-in-out 200ms;
+  background-color: rgba(22, 24, 35, 0.06);
+  margin-top: 10px;
+  margin-bottom: 6px;
+}
+.love-color-like {
+  padding-top: 14px;
+  color: var(--primary);
+}
+.love-color-unlike {
+  padding-top: 14px;
+  color: black;
+}
+.aniamtion-love {
+  width: 100%;
+  height: 100%;
+  transform: translate3d(0px, 0px, 0px);
+  content-visibility: visible;
+}
+.share-btn {
+  padding-top: 14px;
+  padding-left: 20px;
+}
+
+.comment-btn {
+  padding-top: 14px;
+  padding-left: 20px;
+}
+.number {
+  color: rgba(22, 24, 35, 0.75);
+  font-size: 12px;
+  line-height: 17px;
+  text-align: center;
+  margin-right: 6px;
+}
+.reaction {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }

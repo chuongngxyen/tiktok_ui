@@ -101,3 +101,7 @@ body {
     color: rgba(84, 84, 84, 0.92);
   }
 }
+
+::-webkit-media-controls-fullscreen-button {
+  display: none !important;
+}

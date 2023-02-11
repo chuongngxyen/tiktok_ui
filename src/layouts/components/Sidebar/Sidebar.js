@@ -6,9 +6,10 @@ import config from "~/config";
 import styles from "./Sidebar.module.scss"
 import { MenuItem } from "./Menu";
 import { LiveIcon, HomeIcon, UserGroupIcon, HomeAcitveIcon, UserGroupAcitveIcon, LiveAcitveIcon } from "~/component/Icon";
-import SuggestedAccount from "~/component/SuggestedAccount";
+// import SuggestedAccount from "~/component/SuggestedAccount";
 import DiscoverMenu from "./DiscoverMenu";
 import FooterSidebar from "./FooterSidebar";
+import SuggestedAccount from "~/component/SuggestedAccount/SuggestedAccount";
 
 const cx = classNames.bind(styles)
 export const infoContext = createContext()
