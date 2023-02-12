@@ -51,9 +51,12 @@
   }
 }
 .text {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  user-select: none;
   border: 1px solid rgba(22, 24, 35, 0.12);
   color: black;
-
   &:hover {
     background-color: rgba(22, 24, 35, 0.03);
   }
@@ -86,28 +89,31 @@
   transition: background-color 200ms ease-in-out 0s;
   margin-right: 8px;
 
-  //font
-  text-overflow: ellipsis;
-  overflow: hidden;
-  white-space: nowrap;
-  font-family: var(--font-ProximaNova);
-  color: rgba(22, 24, 35, 0.75);
-  font-weight: 400;
-  font-size: 14px;
-  line-height: 18px;
-  padding-left: 6px;
+  .title {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    font-family: var(--font-ProximaNova);
+    color: rgba(22, 24, 35, 0.75);
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 18px;
+    padding-left: 6px;
+  }
   .icon {
     color: rgba(22, 24, 35, 1) !important;
     margin-top: 2px;
   }
   .icon + .title {
-    margin-left: 4px;
+    margin-left: -3px;
   }
   &:hover {
     background: rgba(22, 24, 35, 0.03);
   }
 }
-
+.left-icon {
+  margin-top: 1.5px;
+}
 .showmusic {
   padding: 0px;
   margin: 0px;

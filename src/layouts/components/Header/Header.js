@@ -85,7 +85,7 @@ function Header() {
 
     return (
         <>
-            <Link to={config.routes.home}><Image src={images.logo} className={cx('logo')} alt="TikTok" /></Link>
+            <Link className={cx('wrapper-logo')} to={config.routes.home}><Image src={images.logo} className={cx('logo')} alt="TikTok" /></Link>
             <Search></Search>
             <div className={cx('action')}>
                 <Button text to={config.routes.upload}><FontAwesomeIcon icon={faPlus} className={cx('plus-icon')} />Upload</Button>

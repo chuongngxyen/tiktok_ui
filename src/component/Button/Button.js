@@ -61,7 +61,7 @@ const Button = forwardRef(({
     })
     return (
         <Comp className={classes} {...props}>
-            {lefticon && <div className={cx('icon')}>{lefticon}</div>}
+            {lefticon && <div className={cx('icon', 'left-icon')}>{lefticon}</div>}
             <span className={cx('title')}>{children}</span>
             {righticon && <div className={cx('icon')}>{righticon}</div>}
         </Comp>

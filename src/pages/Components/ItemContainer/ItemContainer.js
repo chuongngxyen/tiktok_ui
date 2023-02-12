@@ -5,9 +5,9 @@ import { Link } from "react-router-dom";
 import images from "~/assets/images";
 import { videos } from "~/assets/video";
 import Button from "~/component/Button";
-import { useRef, useState } from "react";
+import { useRef, useState, useEffect } from "react";
 
-import { CommentIcon, LoveAnimationIcon, LoveIcon, MusicIcon, ShareIcon } from "~/component/Icon";
+import { CommentIcon, LoveAnimationIcon, LoveIcon, MusicIcon, MuteIcon, PauseIcon, PlayIcon, ShareIcon } from "~/component/Icon";
 import styles from "./ItemContainer.module.scss"
 
 const cx = classNames.bind(styles)
@@ -16,6 +16,8 @@ const strings = "Hãy cứ vô tư và lạc lạc lạc lạc lạc.... #haycuv
 function ItemContainer() {
     const [like, setLike] = useState(false)
     const [animationLove, setAnimationLove] = useState(false)
+    const [playvideo, setPlayvideo] = useState(false)
+    const [soundvideo, setsoundvideo] = useState(0)
     const loveBtn = useRef()
     const refVideo = useRef()
 
@@ -39,9 +41,31 @@ function ItemContainer() {
             setAnimationLove(true)
         }
     }
+
+    const handleplayvideo = () => {
+        setPlayvideo(!playvideo)
+    }
+    const handleSoundVideo = (e) => {
+        setsoundvideo(e.target.value)
+    }
+    useEffect(() => {
+        if (playvideo) {
+            refVideo.current.play()
+        }
+        else {
+            refVideo.current.pause()
+        }
+
+    }, [playvideo]);
+
+    useEffect(() => {
+        refVideo.current.volumne = soundvideo
+        console.log(refVideo.current.volumne);
+    }, [soundvideo])
+
     return (
         <div className={cx('wrapper')}>
-            <div className={cx('wrapper-2')} >
+            <div className={cx('des-wrapper')} >
                 <Link to="/" className={cx('image-wrapper')}><img className={cx('image')} src={images.avatar} alt="error" /></Link>
                 <div className={cx('content')}>
                     <div className={cx('des-content')}>
@@ -68,9 +92,18 @@ function ItemContainer() {
 
             <div className={cx('video-wrapper')}>
                 <div className={cx('video-content')}>
+                    {/* video */}
                     <video ref={refVideo} src={videos.test} className={cx('video')} onDoubleClick={(e) => {
                         setLike(true)
                     }}></video>
+
+                    <div>
+                        <div className={cx('play-video')} onClick={handleplayvideo}>{playvideo ? (<PauseIcon />) : (<PlayIcon />)}</div>
+                        <div className={cx('sound-wrapper')}>
+                            <input type={"range"} value={soundvideo} min={0} max={100} className={cx('sound-control')} onChange={(e) => { handleSoundVideo(e) }} />
+                            <div className={cx('mute-video')}><MuteIcon /></div>
+                        </div>
+                    </div>
                 </div>
                 <div className={cx('reaction-content')}>
                     <div className={cx('reaction')}>
@@ -86,7 +119,6 @@ function ItemContainer() {
                         <Button className={cx('share-btn')}><ShareIcon /></Button>
                         <strong className={cx('number')}>2000</strong>
                     </div>
-
                 </div>
             </div>
 

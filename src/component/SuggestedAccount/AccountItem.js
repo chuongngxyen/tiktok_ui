@@ -16,9 +16,12 @@ const cx = classNames.bind(styles)
 
 function AccountItem() {
     const info = useContext(infoContext)
+
     return (
         <div>
             <Tippy
+                appendTo={document.body}
+                zIndex={9999}
                 interactive
                 placement="bottom-end"
                 delay={[500, 500]}
@@ -29,11 +32,11 @@ function AccountItem() {
                         return <Wrapper className={cx('account-info')}>
                             <div className={cx('wrapper-account-info')}>
                                 <div className={cx('account-avatar-wrapper')}>
-                                    <Link to={`/profile`}><img className={cx('avatar-account')} src={images.avatar} alt="account" /></Link>
+                                    <Link to={`/@chuong`}><img className={cx('avatar-account')} src={images.avatar} alt="account" /></Link>
                                     <Button primary className={cx('follow-btn')}>Follow</Button>
                                 </div>
                                 <div className={cx('account-name--')}>
-                                    <Link to={`/profile`}>
+                                    <Link to={`/@chuong`}>
                                         <div className={cx("account-nickname")}>
                                             <p>chuongngxyen</p>
                                             <FontAwesomeIcon className={cx('check-icon')} icon={faCircleCheck} />
@@ -57,7 +60,7 @@ function AccountItem() {
                 <div className={cx('account-item')}>
                     <img className={cx('avatar')} src={images.avatar} alt="account" />
                     <div className={cx('item-info')}>
-                        <Link to={`/profile`} >
+                        <Link to={`/@chuong`} >
                             <div className={cx('nickname')}>
                                 <h4 className={cx('nickname-header')}>chuongngxyen</h4>
                                 <FontAwesomeIcon className={cx('check-icon')} icon={faCircleCheck} />
