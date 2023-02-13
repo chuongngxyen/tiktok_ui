@@ -3,7 +3,7 @@ import { useState } from "react";
 import images from "~/assets/images";
 import Button from "~/component/Button";
 import { BlockIcon, EditIcon, StyledShareIcon } from "~/component/Icon";
-import ShareItem from "~/component/ShareItem";
+import ShareItem from "~/component/ShareItem/ShareItem";
 import styles from "./Profile.module.scss"
 
 const cx = classNames.bind(styles)

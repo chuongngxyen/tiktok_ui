@@ -10,7 +10,7 @@ import { videos } from "~/assets/video";
 import Button from "~/component/Button";
 import { CommentIcon, LoveAnimationIcon, LoveIcon, MusicIcon, MuteIcon, PauseIcon, PlayIcon, ShareIcon, SoundIcon } from "~/component/Icon";
 import styles from "./ItemContainer.module.scss"
-import ShareItem from "~/component/ShareItem";
+import ShareItem from "~/component/ShareItem/ShareItem";
 
 const cx = classNames.bind(styles)
 

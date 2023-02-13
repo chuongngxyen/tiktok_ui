@@ -3,7 +3,7 @@ import { useState } from "react";
 import Tippy from "@tippyjs/react/headless";
 
 
-import { ArrowDownIcon, ArrowDownWhiteIcon, CopyLinkIcon, EmbedIcon, ShareEmailIcon, ShareFacebookIcon, ShareLineIcon, ShareLinkedlnIcon, ShareMessageIcon, SharePinterestIcon, ShareRedditIcon, ShareTelegramIcon, ShareTwitterIcon, ShareWhatsAppIcon } from "../Icon";
+import { ArrowDownIcon, CopyLinkIcon, EmbedIcon, ShareEmailIcon, ShareFacebookIcon, ShareLineIcon, ShareLinkedlnIcon, ShareMessageIcon, SharePinterestIcon, ShareRedditIcon, ShareTelegramIcon, ShareTwitterIcon, ShareWhatsAppIcon } from "../Icon";
 import { Wrapper } from "../Popper";
 import styles from "./ShareItem.module.scss"
 
