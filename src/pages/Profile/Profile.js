@@ -3,6 +3,7 @@ import { useState } from "react";
 import images from "~/assets/images";
 import Button from "~/component/Button";
 import { BlockIcon, EditIcon, StyledShareIcon } from "~/component/Icon";
+import ShareItem from "~/component/ShareItem";
 import styles from "./Profile.module.scss"
 
 const cx = classNames.bind(styles)
@@ -61,7 +62,11 @@ function Profile() {
                     <span>asdsadasdasd</span>
                 </div>
             </div>
-            <div className={cx('share-icon')}><StyledShareIcon /></div>
+            <div className={cx('share-icon')}>
+                <ShareItem offset={[20, 5]} placement={"bottom-end"}>
+                    <div><StyledShareIcon /></div>
+                </ShareItem >
+            </div>
         </div>
         <div className={cx('video-info')}>
             <Button className={cx('video-btn', chosen && 'color-unchosen')} onMouseLeave={handleCheckChosen} onMouseEnter={handleMouseEnterVideo} onClick={handleClickVideobtn}>Videos</Button>
