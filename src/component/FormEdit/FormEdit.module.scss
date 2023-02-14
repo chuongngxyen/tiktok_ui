@@ -1,0 +1,217 @@
+//-------------FORM-EDIT----------------
+.background-form {
+  position: fixed;
+  inset: 0;
+  margin: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 10001;
+}
+.wrapper-form {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  justify-content: center;
+  padding: 32px 16px;
+  max-width: 100vw;
+}
+.form-edit {
+  width: 700px;
+  min-height: 678px;
+  padding: 32px 0px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  // overflow: auto;
+}
+.header {
+  font-weight: 600;
+  font-size: 24px;
+  padding: 24px 24px 12px;
+  line-height: 36px;
+  color: rgb(22, 24, 35);
+  border-bottom: 0.5px solid rgba(22, 24, 35, 0.2);
+}
+.close-btn {
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.item-header {
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 0px;
+}
+.content {
+  display: flex;
+  flex-direction: column;
+  padding: 8px 24px 0px;
+}
+.item-content {
+  display: flex;
+  padding: 16px 0px;
+  border-bottom: 0.5px solid rgba(22, 24, 35, 0.2);
+}
+.bio {
+  border: none;
+}
+.title {
+  width: 120px;
+  font-family: var(--font-ProximaNova);
+  font-weight: 600;
+  line-height: 24px;
+  font-size: 16px;
+  margin-right: 24px;
+}
+.profile-photo {
+  font-family: var(--font-ProximaNova);
+  font-weight: 600;
+  line-height: 24px;
+  font-size: 16px;
+}
+.wrapper-avatar {
+  margin-left: 128px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.avatar {
+  width: 96px;
+  height: 96px;
+
+  img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+    cursor: pointer;
+  }
+}
+.edit-icon {
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  position: relative;
+  bottom: 21px;
+  right: 9px;
+  background-color: white;
+  border-radius: 50%;
+  border: 1px solid rgb(208, 208, 211);
+  margin-left: 82px;
+  margin-bottom: -26px;
+}
+.username-change {
+  position: relative;
+}
+.username {
+  font-size: 16px;
+  line-height: 24px;
+  color: rgb(22, 24, 35);
+}
+.des-username {
+  font-size: 12px;
+  color: rgba(22, 24, 35, 0.75);
+  line-height: 18px;
+  max-width: 460px;
+  overflow: hidden;
+  margin-top: 8px;
+  width: 360px;
+  display: flex;
+  flex-direction: column;
+  span {
+    margin-top: 8px;
+  }
+}
+.name-change {
+  display: flex;
+  flex-direction: column;
+  input {
+    width: 360px;
+    height: 38px;
+    font-size: 16px;
+    font-family: var(--font-ProximaNova);
+    color: rgb(22, 24, 35);
+    line-height: 24px;
+    caret-color: var(--primary);
+    padding: 7px 12px;
+    background-color: rgba(22, 24, 35, 0.06);
+    border-radius: 4px;
+    border: none;
+    &:focus {
+      background: rgba(22, 24, 35, 0.06);
+      outline: rgba(22, 24, 35, 0.2) solid 1.5px;
+    }
+  }
+  span {
+    font-size: 12px;
+    color: rgba(22, 24, 35, 0.75);
+    line-height: 18px;
+    max-width: 460px;
+    overflow: hidden;
+    width: 360px;
+    margin-top: 8px;
+  }
+}
+
+.bio-change {
+  display: flex;
+  flex-direction: column;
+  textarea {
+    width: 360px;
+    border-radius: 4px;
+    background: rgba(22, 24, 35, 0.06);
+    caret-color: var(--primary);
+    font-family: var(--font-ProximaNova);
+    font-size: 16px;
+    color: rgb(22, 24, 35);
+    line-height: 24px;
+    border: none;
+    height: 100px;
+    padding: 12px;
+    resize: none;
+    &:focus {
+      background: rgba(22, 24, 35, 0.06);
+      outline: rgba(22, 24, 35, 0.2) solid 1.5px;
+    }
+  }
+  span {
+    color: rgba(22, 24, 35, 0.75);
+    font-size: 12px;
+    line-height: 18px;
+    margin-top: 8px;
+  }
+}
+
+.bio-warning {
+  textarea {
+    outline: rgb(255, 76, 58) solid 1.5px;
+    &:focus {
+      outline: rgb(255, 76, 58) solid 1.5px;
+    }
+  }
+}
+
+.option-btns {
+  border-top: 0.5px solid rgba(22, 24, 35, 0.2);
+  display: flex;
+  justify-content: flex-end;
+  padding: 21px 0px;
+}
+
+.save-btn {
+  min-height: 28px;
+  font-family: var(--font-ProximaNova);
+  font-size: 14px;
+  font-weight: 600;
+  min-width: 96px;
+  height: 36px;
+  margin-left: 16px;
+  padding: 7px 16px;
+  margin-right: 23px;
+}
+//--------------------------------------
