@@ -1,0 +1,91 @@
+.wrapper {
+  background-color: rgb(248, 248, 248);
+  max-height: 1500px;
+}
+
+.upload-wrapper {
+  margin: 0px auto;
+  width: 1100px;
+  max-height: 1025px;
+  padding-top: 16px;
+  padding-bottom: 16px;
+}
+
+.content-wrapper {
+  padding: 0px 39px;
+}
+
+.header {
+  span {
+    font-family: var(--font-Proxiama-Nova);
+    font-size: 18px;
+    line-height: 1.5;
+    font-weight: 400;
+    color: rgba(22, 24, 35, 0.5);
+  }
+}
+
+.content {
+  display: flex;
+  flex-direction: row;
+  margin-top: 24px;
+  margin-bottom: 130px;
+}
+
+.upload-video-wrapper {
+  padding: 0px 30px;
+  display: flex;
+  flex-direction: column;
+  border: 2px dashed rgba(22, 24, 35, 0.2);
+  justify-content: center;
+  align-items: center;
+  border-radius: 4px;
+  width: 260px;
+  height: 458px;
+  cursor: pointer;
+
+  &:hover {
+    background: rgba(22, 24, 35, 0.03);
+    border: 2px dashed var(--primary);
+  }
+}
+
+.upload-icon {
+  margin-bottom: 1.6rem;
+}
+
+.title-upload-1 {
+  color: rgba(22, 24, 35, 1);
+  font-family: var(--font-Proxiama-Nova);
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 1.5;
+}
+.title-upload-2 {
+  color: rgba(22, 24, 35, 0.75);
+  font-family: var(--font-Proxiama-Nova);
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.bound-upload {
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  span {
+    font-family: var(--font-Proxiama-Nova);
+    font-size: 14px;
+    line-height: 1.5;
+    font-weight: 400;
+    color: rgba(22, 24, 35, 0.5);
+    margin-bottom: 6px;
+  }
+}
+.selectfile-btn {
+  width: 190px;
+  margin-left: 16px;
+  margin-top: 15px;
+}

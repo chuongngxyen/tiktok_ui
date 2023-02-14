@@ -4,6 +4,7 @@ const images = {
     avatar: require('./Adele1.png'),
     logoFooter: require('./logo_footer.svg').default,
     logoTextFooter: require('./logotext_footer.svg').default,
+    cloudUploadIcon: require('./cloud-icon-upload.svg').default,
 
 }
 export default images
