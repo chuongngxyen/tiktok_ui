@@ -31,7 +31,7 @@
   margin-top: 24px;
   margin-bottom: 130px;
 }
-
+//------------LEFT-CONTENT-----------
 .upload-video-wrapper {
   padding: 0px 30px;
   display: flex;
@@ -43,6 +43,7 @@
   width: 260px;
   height: 458px;
   cursor: pointer;
+  margin-top: 22px;
 
   &:hover {
     background: rgba(22, 24, 35, 0.03);
@@ -89,3 +90,132 @@
   margin-left: 16px;
   margin-top: 15px;
 }
+//--------------------------------------
+//------------RIGHT-CONTENT-------------
+.des-content {
+  display: flex;
+  flex-direction: column;
+  margin-left: 20px;
+  flex: 1;
+}
+
+.edit-video {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  background-color: rgba(22, 24, 35, 0.03);
+  height: 104px;
+  padding: 15px 5px;
+  margin-bottom: 24px;
+}
+
+.icon-divide-black {
+  width: 24px;
+  height: 24px;
+  img {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.des-edit {
+  display: flex;
+  flex-direction: column;
+  width: 496px;
+}
+.des-edit-1 {
+  font-family: var(--font-Proxiama-Nova);
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 24px;
+  font-style: normal;
+}
+
+.des-edit-2 {
+  color: rgba(22, 24, 35, 0.75);
+  font-family: var(--font-Proxiama-Nova);
+  opacity: 0.75;
+  font-size: 14px;
+  line-height: 22px;
+  font-style: normal;
+  font-weight: 400;
+}
+.edit-btn {
+  margin-top: 12px;
+  button {
+    border-radius: 2px;
+    min-height: 38px;
+  }
+}
+//Caption
+.caption-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.header {
+  color: rgba(22, 24, 35, 1);
+  font-family: var(--font-Proxiama-Nova);
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1.5;
+}
+
+.count-caption {
+  font-family: var(--font-Proxiama-Nova);
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 17px;
+  color: rgba(22, 24, 35, 0.5);
+  white-space: pre;
+  align-items: left;
+}
+
+.caption-input {
+  min-height: 46px;
+  position: relative;
+  text-align: center;
+  border: 1px solid rgba(22, 24, 35, 0.12);
+  border-radius: 4px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  input {
+    font-family: var(--font-Proxiama-Nova);
+    font-size: 15px;
+    font-weight: 400;
+    padding: 10px 15px;
+    flex: 1;
+  }
+}
+
+.caption-icon {
+  width: 20px;
+  height: 20px;
+  margin-right: 1rem;
+  img {
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+  }
+}
+
+.cover-content {
+  margin-top: 24px;
+}
+
+.cover-input {
+  border: 1px solid rgba(22, 24, 35, 0.12);
+  border-radius: 4px;
+  padding: 8px 5px;
+}
+.cover-video {
+  width: 85.75px;
+  height: 150px;
+  object-fit: cover;
+}
+.cover-video-empty {
+  background-color: rgba(22, 24, 35, 0.03);
+}
+
+//--------------------------------------

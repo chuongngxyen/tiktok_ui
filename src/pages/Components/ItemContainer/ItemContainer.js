@@ -24,6 +24,7 @@ function ItemContainer({ soundvalue = 50, srcvideo = videos.test }) {
     const refVideo = useRef(null)
 
 
+
     const handleDesciptionHash = (string) => {
         var temps = string.split(" ")
         const findhash = temps.map((temp) => {
@@ -108,12 +109,12 @@ function ItemContainer({ soundvalue = 50, srcvideo = videos.test }) {
                             <input type={"range"} value={soundvideo} min={0} max={100} className={cx('sound-control')} onChange={(e) => { handleSoundVideo(e) }} />
                             <div className={cx('mute-video')} onClick={() => {
                                 if (soundvideo === 0) {
-                                    setsoundvideo(10)
+                                    setsoundvideo(Math.random() * (100 - 10) + 10)
                                 }
                                 else {
                                     setsoundvideo(0)
                                 }
-                            }}>{soundvideo === 0 ? (<MuteIcon />) : (<SoundIcon />)}</div>
+                            }}>{soundvideo > 0 ? (<SoundIcon />) : (<MuteIcon />)}</div>
                         </div>
                     </div>
                 </div>
