@@ -1,15 +1,51 @@
+import { faCaretDown } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import Tippy from "@tippyjs/react/headless";
 import classNames from "classnames/bind";
+import { useRef } from "react";
 import { useState } from "react";
+
 import images from "~/assets/images";
 import Button from "~/component/Button";
+import { CheckIcon, WarningIcon } from "~/component/Icon";
 import { Wrapper } from "~/component/Popper";
 import styles from "./Upload.module.scss"
 
 
+const checkboxes = [
+    {
+        name: 'Comment',
+        check: true
+    },
+    {
+        name: 'Duet',
+        check: true
+    },
+    {
+        name: 'Stitch',
+        check: true
+    },
+]
 const cx = classNames.bind(styles)
+const statusSelector = ['Public', 'Friends', 'Private']
 function Upload() {
     // eslint-disable-next-line no-unused-vars
     const [coverVideoEmpty, setCoverVideoEmpty] = useState(true)
+    const [chosenStatus, setChosenStatus] = useState('Public')
+    const [checkboxesstate, setCheckboxesstate] = useState(checkboxes)
+    const [copyrightCheck, setCopyrightCheck] = useState(false)
+    const inputRef = useRef()
+    const handleClickCheck = (index, checked) => {
+        let temp = checkboxesstate.slice()
+        if (checked) {
+            temp[index].check = true
+        }
+        else {
+            temp[index].check = false
+        }
+        setCheckboxesstate(temp)
+    }
+
     return (
         <div className={cx('wrapper')}>
             <div className={cx('upload-wrapper')}>
@@ -68,10 +104,75 @@ function Upload() {
                                         <div className={cx('cover-video', coverVideoEmpty && 'cover-video-empty')}></div>
                                     </div>
                                 </div>
-                                <div></div>
-                                <div></div>
-                                <div></div>
-                                <div></div>
+                                <div className={cx('upload-option')}>
+                                    <div className={cx('video-status')}>
+                                        <span className={cx('header')} style={{ marginBottom: "4px" }}>Who can watch this video</span>
+                                        <Tippy
+                                            trigger="click"
+                                            placement="bottom-start"
+                                            interactive
+                                            render={(attrs, a, instance) => {
+                                                return <Wrapper className={cx('option-select')}>
+                                                    {statusSelector.map((status, index) => {
+                                                        return <span onClick={() => {
+                                                            setChosenStatus(status)
+                                                            instance.hide()
+                                                        }} className={cx(status === chosenStatus && 'focus-status-option')} key={index}>{status}</span>
+                                                    })}
+                                                    <div></div>
+                                                </Wrapper>
+                                            }}>
+                                            <div className={cx('status-select')}>
+                                                <span>{chosenStatus}</span>
+                                                <FontAwesomeIcon icon={faCaretDown} />
+                                            </div>
+                                        </Tippy>
+                                    </div>
+                                    <div className={cx('allowuser-wrapper')}>
+                                        <span className={cx('header')} style={{ marginBottom: "4px" }}>Allow users to:</span>
+
+                                        <div className={cx('checkbox-wrapper')}>
+                                            {checkboxesstate.map((checkbox, index) => {
+                                                return <div key={checkbox.name} className={cx('wrapper-checkbox')} >
+                                                    <div className={cx('wrapper-input')}>
+                                                        <input ref={inputRef} onChange={(e) => {
+
+                                                            handleClickCheck(index, e.target.checked)
+
+                                                        }} type={"checkbox"} checked={checkbox.check} />
+                                                        <div className={cx('border-input', checkbox.check && 'border-input-check')}>
+                                                            <CheckIcon />
+                                                        </div>
+                                                    </div>
+                                                    <span>{checkbox.name}</span>
+                                                </div>
+                                            })}
+
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className={cx('copyright-check')}>
+                                    <span className={cx('header', 'title-copyright-check')}>Run a copyright check</span>
+                                    <label className={cx('switch-input')}>
+                                        <input type={"checkbox"} className={cx('check-copyright')} onChange={(e) => {
+                                            setCopyrightCheck(e.target.checked)
+                                        }} checked={copyrightCheck} />
+                                        <span className={cx('slider')}></span>
+                                    </label>
+                                </div>
+                                <div className={cx('warning-copyright')}>
+                                    {!copyrightCheck ? (<span className={cx('warning-type1')}><span>We'll check your video for potential copyright infringements on used sounds. If infringements are found, you can edit the video before posting.</span><span className={cx('warning-type1', 'bold')}> Learn more</span></span >)
+                                        : (<span className={cx('warning-type2')}>
+                                            <WarningIcon />
+                                            <span>Copyright check will not begin until your video is uploaded.</span>
+                                        </span>)}
+                                </div>
+                                <div className={cx('submit-btn')}>
+                                    <Button text>Discard</Button>
+                                    <Button primary disabled>Post</Button>
+
+                                </div>
                             </div>
                         </div>
                     </div>

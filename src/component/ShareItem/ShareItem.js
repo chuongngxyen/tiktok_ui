@@ -66,8 +66,7 @@ function ShareItem({ children, offset = [0, -5], placement = "top-start" }) {
             interactive
             placement={placement}
             offset={offset}
-            delay={[0, 500]}
-            hideOnClick={false}
+            trigger="click mouseenter"
             render={(attrs) => (
                 <Wrapper className={cx('wrapper')}>
                     <div className={cx('items-wrapper')}>
