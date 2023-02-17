@@ -4,11 +4,13 @@ import Tippy from "@tippyjs/react/headless";
 import classNames from "classnames/bind";
 import { useRef } from "react";
 import { useState } from "react";
+import { createPortal } from "react-dom";
 
 import images from "~/assets/images";
 import Button from "~/component/Button";
 import { CheckIcon, WarningIcon } from "~/component/Icon";
 import { Wrapper } from "~/component/Popper";
+import WarningDiv from "../Components/WarningDiv";
 import styles from "./Upload.module.scss"
 
 
@@ -34,7 +36,24 @@ function Upload() {
     const [chosenStatus, setChosenStatus] = useState('Public')
     const [checkboxesstate, setCheckboxesstate] = useState(checkboxes)
     const [copyrightCheck, setCopyrightCheck] = useState(false)
-    const inputRef = useRef()
+    const [captionText, setcaptionText] = useState("")
+    const [warningCaption, setWarningCaption] = useState(false)
+    const inputcaptionRef = useRef()
+    const inputchecboxRef = useRef()
+
+
+    const handleCheckCaptionInput = (e) => {
+        if (e.target.value.length === 151) {
+            setWarningCaption(true)
+            setTimeout(() => {
+                setWarningCaption(false)
+            }, 2000);
+            return
+        }
+        //setWarningCaption(false)
+        setcaptionText(e.target.value)
+    }
+
     const handleClickCheck = (index, checked) => {
         let temp = checkboxesstate.slice()
         if (checked) {
@@ -85,12 +104,12 @@ function Upload() {
                                     <div style={{ display: "flex", justifyContent: 'space-between', alignItems: 'center', marginBottom: '2px' }}>
                                         <span className={cx('header')}>Caption</span>
                                         <div className={cx('count-caption')}>
-                                            <span>0</span>
+                                            <span>{captionText.length}</span>
                                             <span>/150</span>
                                         </div>
                                     </div>
                                     <div className={cx('caption-input')}>
-                                        <input type={"text"} />
+                                        <input style={{ whiteSpace: "normal" }} type={"text"} value={captionText} onChange={(e) => { handleCheckCaptionInput(e) }} ref={inputcaptionRef} />
                                         <div className={cx('caption-icon')}><img src={images.atSignIcon} alt="error" /></div>
                                         <div className={cx('caption-icon')}><img src={images.hashtagIcon} alt="error" /></div>
 
@@ -135,7 +154,7 @@ function Upload() {
                                             {checkboxesstate.map((checkbox, index) => {
                                                 return <div key={checkbox.name} className={cx('wrapper-checkbox')} >
                                                     <div className={cx('wrapper-input')}>
-                                                        <input ref={inputRef} onChange={(e) => {
+                                                        <input ref={inputchecboxRef} onChange={(e) => {
 
                                                             handleClickCheck(index, e.target.checked)
 
@@ -177,6 +196,9 @@ function Upload() {
                         </div>
                     </div>
                 </Wrapper>
+                {warningCaption && createPortal(
+                    <WarningDiv>maximum 150 characters</WarningDiv>,
+                    document.body)}
             </div>
         </div>
     );
