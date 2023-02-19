@@ -3,10 +3,23 @@ import { publicRoutes } from "./routes";
 
 //Layout
 import { DefaultLayout } from "~/layouts";
-import { Fragment } from "react";
+import { Fragment, useState } from "react";
+import { useEffect } from "react";
+import { GoTopIcon } from "./component/Icon";
 
 
 function App() {
+  //const [scrollY, setScrolly] = useState(0)
+  const [displayUP, setdisplayUP] = useState(false)
+  useEffect(() => {
+    const handleScroll = () => {
+      setdisplayUP(window.scrollY > 200)
+    }
+    window.addEventListener('scroll', handleScroll)
+    return () => {
+      window.removeEventListener('scroll', handleScroll)
+    };
+  }, []);
   return (
     <Router>
       <div>
@@ -27,6 +40,9 @@ function App() {
               </Layout>} />
           })}
         </Routes>
+        {displayUP && <div onClick={() => {
+          document.body.scrollIntoView({ behavior: 'smooth' })
+        }} style={{ position: "fixed", right: "2rem", bottom: '5px', backgroundColor: 'rgba(254, 44, 85, 1)', borderRadius: '100%', width: '30px', height: '30px', display: 'flex', justifyContent: 'center', alignItems: 'center' }}><GoTopIcon /></div>}
       </div>
     </Router >
 

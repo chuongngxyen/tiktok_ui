@@ -6,6 +6,7 @@ import classNames from "classnames/bind";
 
 const cx = classNames.bind(styles)
 function DefaultLayout({ children }) {
+    console.log(window.scrollY);
     return (
         <div className={cx('wrapper')}>
             <div className={cx('header')}>
