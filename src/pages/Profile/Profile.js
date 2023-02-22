@@ -11,6 +11,7 @@ import styles from "./Profile.module.scss"
 
 const cx = classNames.bind(styles)
 function Profile() {
+    const userprofile = false
     const [underline, setUnderline] = useState(false)
     const [chosen, setchosen] = useState(false)
     const [closeEdit, setCloseedit] = useState(false)
@@ -55,7 +56,9 @@ function Profile() {
                                     <div className={cx('name')}>Chuong Nguyen</div>
                                     <div className={cx('nickname')}>chuongngxyen</div>
                                 </div>
-                                <Button onClick={handleOpenEdit} className={cx('edit-btn')} lefticon={<EditIcon />} text>Edit Profile</Button>
+                                {userprofile ? (<Button text onClick={handleOpenEdit} className={cx('edit-btn')} lefticon={<EditIcon />} >Edit Profile</Button>) :
+                                    (<Button outline className={cx('messages-btn')} >Messages</Button>)}
+
                             </div>
                         </div>
                         <div className={cx('count-info')}>

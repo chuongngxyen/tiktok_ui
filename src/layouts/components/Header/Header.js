@@ -2,7 +2,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlus, faEllipsisVertical, faEarthAsia, faCircleQuestion, faKeyboard, faCoins, faCamera, faGear, faRightFromBracket, faUser } from "@fortawesome/free-solid-svg-icons";
 import Tippy from '@tippyjs/react';
 import "tippy.js/dist/tippy.css"
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import classNames from "classnames/bind";
 
 import Menu from "~/component/Popper/Menu";
@@ -47,8 +47,8 @@ const MENU_ITEMS = [
 
 
 function Header() {
-    const currenUser = true
-
+    const currenUser = false
+    const navigation = useNavigate()
     const userMenu = [
         {
             icon: <FontAwesomeIcon icon={faUser} />,
@@ -105,7 +105,9 @@ function Header() {
                     </>
                 ) : (
                     <>
-                        <Button primary>Log in</Button>
+                        <Button className={cx('login-btn')} primary onClick={() => {
+                            navigation('/login')
+                        }}>Log in</Button>
                         <Tippy placement="bottom" content="Create Effect">
                             <Button className={cx('create-effect-icon')} href={'https://effecthouse.tiktok.com/?lang=en&utm_content=header&utm_source=tiktok_webapp_main'} target={'_blank'} ><CreateEffectIcon /></Button>
                         </Tippy>
