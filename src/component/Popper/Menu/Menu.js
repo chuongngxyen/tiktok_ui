@@ -22,7 +22,16 @@ function Menu({ children, item = [], onChange = nonFn }) {
                     sethistory((prev) => [...prev, { data: item.children }])
                 }
                 else {
-                    onChange(item)
+
+                    if (item.onClick) {
+                        console.log(1);
+                        item.onClick()
+                    }
+                    else {
+                        console.log(2);
+
+                        onChange(item)
+                    }
                 }
             }} />
         })

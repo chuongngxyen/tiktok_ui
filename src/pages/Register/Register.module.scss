@@ -1,0 +1,87 @@
+.wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: url(../../assets/images/backgroundLogin.jpg);
+  background-size: cover;
+  color: #fff;
+}
+
+.register-form {
+  min-width: 400px;
+  width: 550px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 2rem;
+  border: 2px solid var(--primary);
+  backdrop-filter: blur(15px);
+  border-radius: 20px;
+  align-items: center;
+}
+
+.content {
+  display: flex;
+  flex-direction: row;
+  margin-top: 5px;
+  padding: 1rem;
+}
+
+.left-content {
+  display: flex;
+  flex-direction: column;
+  margin-right: 3.5rem;
+}
+
+.right-content {
+  display: flex;
+  flex-direction: column;
+  margin-left: 3.5rem;
+}
+::-webkit-calendar-picker-indicator {
+  filter: invert(1);
+}
+.input-wrapper {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  textarea {
+    font-family: var(--font-ProximaNova);
+    font-size: 16px;
+    color: #fff;
+    outline: none;
+    border: none;
+    margin-bottom: 10px;
+    background-color: transparent;
+    border-radius: 4px;
+    resize: none;
+  }
+  input {
+    font-family: var(--font-ProximaNova);
+    font-size: 16px;
+    color: #fff;
+    margin-bottom: 1.5rem;
+    border-bottom: 1px solid #fff;
+    background-color: transparent;
+  }
+}
+
+.reg-btn {
+  min-height: 10px;
+  min-width: 30rem;
+  margin-top: 1rem;
+}
+
+.go-back {
+  color: #fff;
+  font-weight: 600;
+  cursor: pointer;
+  user-select: none;
+}

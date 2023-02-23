@@ -47,7 +47,6 @@ const MENU_ITEMS = [
 
 
 function Header() {
-    const currenUser = false
     const navigation = useNavigate()
     const userMenu = [
         {
@@ -74,7 +73,10 @@ function Header() {
         {
             icon: <FontAwesomeIcon icon={faRightFromBracket} />,
             title: 'Log out',
-            to: '/logout',
+            href: '/',
+            onClick: () => {
+                sessionStorage.removeItem('user-login')
+            },
             separate: true
         },
     ]
@@ -89,7 +91,7 @@ function Header() {
             <Search></Search>
             <div className={cx('action')}>
                 <Button text to={config.routes.upload}><FontAwesomeIcon icon={faPlus} className={cx('plus-icon')} />Upload</Button>
-                {currenUser ? (
+                {sessionStorage.getItem('user-login') ? (
                     <>
                         <Tippy placement="bottom" content="Messages" >
                             <button className={cx('user-message')}><MessageIcon /></button>
@@ -115,9 +117,8 @@ function Header() {
                     </>
                 )}
 
-                <Menu
-                    item={currenUser ? userMenu : MENU_ITEMS} onChange={handleMenuChange}>
-                    {currenUser ? (
+                <Menu item={sessionStorage.getItem('user-login') ? userMenu : MENU_ITEMS} onChange={handleMenuChange}>
+                    {sessionStorage.getItem('user-login') ? (
                         <Image
                             src={images.avatar}
                             className={cx('user-avatar')}

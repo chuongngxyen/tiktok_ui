@@ -1,6 +1,7 @@
 const routes = {
-    forgot: '/forgot',
     login: '/login',
+    register: '/register',
+    forgot: '/forgot',
     home: '/',
     following: '/following',
     profile: '/:nickname',

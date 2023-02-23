@@ -12,9 +12,11 @@ import Upload from "~/pages/Upload";
 import Live from "~/pages/Live";
 import Login from "~/pages/Login";
 import Forgot from "~/pages/Forgot";
+import Register from "~/pages/Register";
 
 const publicRoutes = [
     { path: config.routes.forgot, component: Forgot, layout: null },
+    { path: config.routes.register, component: Register, layout: null },
     { path: config.routes.login, component: Login, layout: null },
     { path: config.routes.home, component: Home },
     { path: config.routes.following, component: Following },
