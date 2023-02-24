@@ -45,6 +45,7 @@ const MENU_ITEMS = [
 ]
 
 
+const info = JSON.parse(sessionStorage.getItem('user-login'))
 
 function Header() {
     const navigation = useNavigate()
@@ -52,7 +53,7 @@ function Header() {
         {
             icon: <FontAwesomeIcon icon={faUser} />,
             title: 'View profile',
-            to: '/@chuong'
+            to: `/@${info ? (info.username) : ('')}`
         },
         {
             icon: <FontAwesomeIcon icon={faCoins} />,
@@ -80,6 +81,7 @@ function Header() {
             separate: true
         },
     ]
+
     const handleMenuChange = (menu_item) => {
         console.log(menu_item);
     }

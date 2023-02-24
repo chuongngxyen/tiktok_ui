@@ -23,11 +23,10 @@ function Login() {
         if (username && password) {
             const item = { username, password }
             let result = await axios.post('http://localhost:3001/api/login', item)
-            console.log(result)
             result = result.data
             if (result) {
                 sessionStorage.setItem('user-login', JSON.stringify(result))
-                navigation('/')
+                window.location.href = '/'
             }
             else {
                 alert('wrong username or password')
