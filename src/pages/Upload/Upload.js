@@ -45,10 +45,12 @@ function Upload() {
     const handleCheckCaptionInput = (e) => {
         if (e.target.value.length === 151) {
             setWarningCaption(true)
-            setTimeout(() => {
+            const warning = setTimeout(() => {
                 setWarningCaption(false)
             }, 2000);
-            return
+            return () => {
+                clearTimeout(warning)
+            }
         }
         //setWarningCaption(false)
         setcaptionText(e.target.value)

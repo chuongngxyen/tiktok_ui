@@ -20,6 +20,7 @@ const Button = forwardRef(({
     disabled = false,
     discover = false,
     showmusic = false,
+    loginoption = false,
     lefticon,
     righticon,
     children, ...passProp }, ref) => {
@@ -57,7 +58,8 @@ const Button = forwardRef(({
         disabled,
         rounded,
         discover,
-        showmusic
+        showmusic,
+        loginoption
     })
     return (
         <Comp className={classes} {...props}>
@@ -81,6 +83,7 @@ Button.propTypes = {
     disabled: Proptypes.bool,
     discover: Proptypes.bool,
     showmusic: Proptypes.bool,
+    loginoption: Proptypes.bool,
     children: Proptypes.node.isRequired,
 }
 export default Button;

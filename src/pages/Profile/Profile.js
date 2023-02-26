@@ -1,6 +1,6 @@
 import axios from "axios";
 import classNames from "classnames/bind";
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useLayoutEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 
 import images from "~/assets/images";
@@ -14,25 +14,28 @@ const cx = classNames.bind(styles)
 const infoUserlogin = JSON.parse(sessionStorage.getItem('user-login'))
 function Profile() {
     const location = useLocation()
-    const [userProfile, setUserProfile] = useState({})
+    console.log(location.pathname);
+    const [userProfile, setUserProfile] = useState(null)
     const [underline, setUnderline] = useState(false)
     const [chosen, setchosen] = useState(false)
     const [closeEdit, setCloseedit] = useState(false)
-    useEffect(() => {
-        axios.get('http://localhost:3001/api/userprofile', {
-            params: {
-                username: location.pathname.slice(2)
-            }
-        })
-            .then(result => {
-                if (result.data === 'dont have profile') {
-                    return setUserProfile(null)
-                }
-                else {
-                    return setUserProfile(result.data)
+    useLayoutEffect(() => {
+        const getProfile = async () => {
+            const result = await axios.get('http://localhost:3001/api/userprofile', {
+                params: {
+                    username: location.pathname.slice(2)
                 }
             })
-    }, [location.pathname]);
+            if (result.data === 'dont have profile') {
+                setUserProfile(null)
+            }
+            else {
+                setUserProfile(result.data)
+            }
+
+        }
+        getProfile()
+    }, [location]);
     const handleClickVideobtn = () => {
         setUnderline(false)
         setchosen(false)
@@ -62,7 +65,7 @@ function Profile() {
     }, [closeEdit])
     return (
         <>
-            {!userProfile ? (<h1 style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh' }}>Couldn't find user</h1>)
+            {!userProfile ? (<h1 style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh', opacity: '0.5' }}>Couldn't find user</h1>)
                 : (<div className={cx('wrapper')}>
                     <div className={cx('header-profile')}>
                         <div className={cx('info-profile')}>
@@ -106,7 +109,7 @@ function Profile() {
                         </div>
                     </div>
                 </div>)}
-            {closeEdit && <FormEdit onClose={handleOpenEdit} />}
+            {closeEdit && <FormEdit onClose={handleOpenEdit} userProfile={infoUserlogin} />}
         </>);
 }
 

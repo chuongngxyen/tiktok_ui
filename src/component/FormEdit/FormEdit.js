@@ -8,17 +8,34 @@ import Button from "../Button";
 import images from "~/assets/images";
 import { EditAvatarIcon } from "../Icon";
 import { memo, useState } from "react";
+import axios from "axios";
 
 const cx = classNames.bind(styles)
-const nameProfile = 'Chuong Nguyen'
-function FormEdit({ onClose }) {
-    const [textbio, settextbio] = useState('')
-    const [name, setName] = useState(nameProfile)
+function FormEdit({ onClose, userProfile }) {
+    const [textbio, settextbio] = useState(userProfile.bio)
+    const [name, setName] = useState(userProfile.nickname)
     const handleNameUser = (e) => {
         setName(e.target.value)
     }
     const handleTextBio = (e) => {
         settextbio(e.target.value)
+    }
+    const handleSaveProfile = async (e) => {
+        e.target.style = "opacity:0.5"
+        const profileUpdate = {
+            idUser: userProfile.idUser,
+            username: userProfile.username,
+            avatar: userProfile.avatar,
+            bio: textbio,
+            nickname: name,
+        }
+        console.log(profileUpdate);
+        const result = await axios.post('http://localhost:3001/api/updateprofile', profileUpdate)
+        console.log(result.data);
+        sessionStorage.setItem('user-login', JSON.stringify(profileUpdate))
+        setTimeout(() => {
+            window.location.href = `/@${userProfile.username}`
+        }, 1500);
     }
     return <div className={cx('wrapper-formedit')}>
         <div className={cx('background-form')}>
@@ -47,7 +64,7 @@ function FormEdit({ onClose }) {
                         <div className={cx('item-content')}>
                             <div className={cx('title-username', 'title')}>Profile photo</div>
                             <div className={cx('username-change')}>
-                                <span className={cx('username')}>chuongngxyen</span>
+                                <span className={cx('username')}>{userProfile.username}</span>
                                 <div className={cx('des-username')}>
                                     <span>www.tiktok.com/@chuongg_ng</span>
                                     <span>Your username can be changed once every 30 days. You can change it again after Mar 6, 2023.</span>
@@ -66,7 +83,7 @@ function FormEdit({ onClose }) {
                         <div className={cx('item-content', 'bio')}>
                             <div className={cx('title-bio', 'title')}>Bio</div>
                             <div className={cx('bio-change', textbio.length < 80 ? ('') : ('bio-warning'))}>
-                                <textarea placeholder="Bio" value={textbio} onChange={(e) => { handleTextBio(e) }} />
+                                <textarea placeholder="Bio" value={textbio} onChange={(e) => { handleTextBio(e) }} spellCheck={false} />
                                 <span>
                                     <span style={textbio.length < 80 ? ({ color: 'rgba(22, 24, 35, 0.75)' }) : ({ color: 'rgb(255, 76, 58)' })}>{textbio.length}</span>
                                     <span>/80</span>
@@ -77,7 +94,7 @@ function FormEdit({ onClose }) {
 
                     <div className={cx('option-btns')}>
                         <Button className={cx('cancel-btn')} onClick={onClose}>Cancel</Button>
-                        <Button primary className={cx('save-btn')}>Save</Button>
+                        <Button primary className={cx('save-btn')} onClick={(e) => { handleSaveProfile(e) }}>Save</Button>
                     </div>
                 </Wrapper>
             </div>

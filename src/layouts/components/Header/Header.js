@@ -2,7 +2,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlus, faEllipsisVertical, faEarthAsia, faCircleQuestion, faKeyboard, faCoins, faCamera, faGear, faRightFromBracket, faUser } from "@fortawesome/free-solid-svg-icons";
 import Tippy from '@tippyjs/react';
 import "tippy.js/dist/tippy.css"
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
+import { useCallback, useLayoutEffect, useState } from "react";
 import classNames from "classnames/bind";
 
 import Menu from "~/component/Popper/Menu";
@@ -13,6 +14,10 @@ import { CreateEffectIcon, InboxIcon, MessageIcon } from "~/component/Icon";
 import Image from "~/component/Image";
 import Search from "../Search/Search";
 import config from '~/config'
+import Login from "~/component/Login";
+import { createPortal } from "react-dom";
+import { useRef } from "react";
+import gsap from "gsap";
 
 const cx = classNames.bind(styles)
 
@@ -48,7 +53,8 @@ const MENU_ITEMS = [
 const info = JSON.parse(sessionStorage.getItem('user-login'))
 
 function Header() {
-    const navigation = useNavigate()
+    const [openLogin, setOpenLogin] = useState(false)
+    const loginRef = useRef(null)
     const userMenu = [
         {
             icon: <FontAwesomeIcon icon={faUser} />,
@@ -81,12 +87,25 @@ function Header() {
             separate: true
         },
     ]
-
+    const handleOpenLogin = useCallback(() => {
+        console.log(openLogin);
+        setOpenLogin(!openLogin)
+    }, [openLogin])
     const handleMenuChange = (menu_item) => {
         console.log(menu_item);
     }
 
+    useLayoutEffect(() => {
+        if (openLogin) {
+            document.body.style = "overflow:hidden"
+            gsap.to(loginRef.current, { opacity: '1', translate: '0.5', display: 'block' })
+        }
+        else {
+            document.body.style = ""
+            gsap.to(loginRef.current, { opacity: '0', translate: '0.5', display: 'none' })
+        }
 
+    }, [openLogin]);
     return (
         <>
             <Link className={cx('wrapper-logo')} to={config.routes.home}><Image src={images.logo} className={cx('logo')} alt="TikTok" /></Link>
@@ -109,9 +128,7 @@ function Header() {
                     </>
                 ) : (
                     <>
-                        <Button className={cx('login-btn')} primary onClick={() => {
-                            navigation('/login')
-                        }}>Log in</Button>
+                        <Button className={cx('login-btn')} primary onClick={handleOpenLogin}>Log in</Button>
                         <Tippy placement="bottom" content="Create Effect">
                             <Button className={cx('create-effect-icon')} href={'https://effecthouse.tiktok.com/?lang=en&utm_content=header&utm_source=tiktok_webapp_main'} target={'_blank'} ><CreateEffectIcon /></Button>
                         </Tippy>
@@ -134,6 +151,7 @@ function Header() {
 
                 </Menu>
             </div>
+            {createPortal(<Login onClose={handleOpenLogin} open={openLogin} ref={loginRef} />, document.body)}
         </>
     );
 }
