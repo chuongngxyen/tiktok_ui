@@ -31,7 +31,8 @@ function Login({ onClose, open }, ref) {
         if (!open) {
             const resetLogin = setTimeout(() => {
                 setContent(() => ItemLogin)
-            }, 800);
+                setbackBtn(false)
+            }, 500);
             return () => {
                 clearTimeout(resetLogin)
             }
@@ -51,7 +52,7 @@ function Login({ onClose, open }, ref) {
                         <ContentLogin onHandleClick={handleChooseLogin} />
 
                     </div>
-                    <div>
+                    <div className={cx('text-register')}>
                         <span className={cx('register')}>Bạn không có tài khoản? <span>Đăng ký</span></span>
                     </div>
                 </Wrapper>

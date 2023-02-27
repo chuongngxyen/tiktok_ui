@@ -8,13 +8,12 @@ import { useContext } from "react"
 
 import { infoContext } from "~/layouts/components/Sidebar/Sidebar"
 import styles from "./SuggestedAccount.module.scss"
-import images from "~/assets/images"
 import { Wrapper } from "../Popper"
 import Button from "../Button"
 
 const cx = classNames.bind(styles)
 
-function AccountItem() {
+function AccountItem({ item }) {
     const info = useContext(infoContext)
 
     return (
@@ -32,22 +31,22 @@ function AccountItem() {
                         return <Wrapper className={cx('account-info')}>
                             <div className={cx('wrapper-account-info')}>
                                 <div className={cx('account-avatar-wrapper')}>
-                                    <Link to={`/@chuong`}><img className={cx('avatar-account')} src={images.avatar} alt="account" /></Link>
+                                    <Link to={`/@${item.nickname}`}><img className={cx('avatar-account')} src={item.avatar} alt="account" /></Link>
                                     <Button primary className={cx('follow-btn')}>Follow</Button>
                                 </div>
                                 <div className={cx('account-name--')}>
-                                    <Link to={`/@chuong`}>
+                                    <Link to={`/@${item.nickname}`}>
                                         <div className={cx("account-nickname")}>
-                                            <p>chuongngxyen</p>
-                                            <FontAwesomeIcon className={cx('check-icon')} icon={faCircleCheck} />
+                                            <p>{item.nickname}</p>
+                                            {item.tick && <FontAwesomeIcon className={cx('check-icon')} icon={faCircleCheck} />}
                                         </div>
-                                        <p className={cx('account-name')}>Chuong Ngxyen</p>
+                                        <p className={cx('account-name')}>{item.first_name} {item.last_name}</p>
                                     </Link>
                                 </div>
                                 <div className={cx('like-follow')}>
-                                    <span className={cx('count')}>10M</span>
+                                    <span className={cx('count')}>{item.followers_count}</span>
                                     <span className={cx('count-title', 'follower')}>Followers</span>
-                                    <span className={cx('count')}>30M</span>
+                                    <span className={cx('count')}>{item.likes_count}</span>
                                     <span className={cx('count-title')}>Likes</span>
                                 </div>
                             </div>
@@ -58,14 +57,14 @@ function AccountItem() {
                     }
                 }}>
                 <div className={cx('account-item')}>
-                    <img className={cx('avatar')} src={images.avatar} alt="account" />
+                    <img className={cx('avatar')} src={item.avatar} alt="account" />
                     <div className={cx('item-info')}>
-                        <Link to={`/@chuong`} >
+                        <Link to={`/@${item.nickname}`} >
                             <div className={cx('nickname')}>
-                                <h4 className={cx('nickname-header')}>chuongngxyen</h4>
-                                <FontAwesomeIcon className={cx('check-icon')} icon={faCircleCheck} />
+                                <h4 className={cx('nickname-header')}>{item.nickname}</h4>
+                                {item.tick && <FontAwesomeIcon className={cx('check-icon')} icon={faCircleCheck} />}
                             </div>
-                            <p className={cx('name')}>Chuong Ngxyen</p>
+                            <p className={cx('name')}>{item.first_name} {item.last_name}</p>
                         </Link>
                     </div>
                 </div>

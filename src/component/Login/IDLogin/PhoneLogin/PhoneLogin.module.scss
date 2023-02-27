@@ -1,0 +1,81 @@
+.wrapper {
+  input {
+    background-color: transparent;
+
+    user-select: none;
+    color: rgb(22, 24, 35);
+    caret-color: rgb(254, 44, 85);
+    font-size: 16px;
+    line-height: 100%;
+    height: 44px;
+  }
+}
+
+.form-login {
+  display: flex;
+  flex-direction: row;
+  background-color: rgba(22, 24, 35, 0.06);
+  height: 44px;
+  align-items: center;
+  margin-bottom: 1rem;
+  input {
+    margin-left: 19px;
+  }
+}
+
+.phone-region {
+  position: relative;
+  font-size: 14px;
+  span {
+    margin-right: 5px;
+    padding-left: 8px;
+    cursor: pointer;
+  }
+  &::after {
+    position: absolute;
+    content: '';
+    background-color: rgba(22, 24, 35, 0.12);
+    margin-left: 10px;
+    height: 34px;
+    width: 1px;
+    bottom: -5px;
+  }
+}
+
+.code-check {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  background-color: rgba(22, 24, 35, 0.06);
+  position: relative;
+  margin-bottom: 10px;
+
+  input {
+    flex: 1;
+    padding-left: 8px;
+  }
+  &::after {
+    content: '';
+    position: absolute;
+    width: 1px;
+    height: 34px;
+    background-color: rgba(22, 24, 35, 0.12);
+    right: 93px;
+  }
+}
+.checkcode-btn {
+  background-color: transparent;
+  color: rgba(22, 24, 35, 0.34);
+  cursor: not-allowed;
+}
+
+.login-with-password {
+  color: rgba(22, 24, 35, 0.75);
+  font-weight: 600;
+  font-size: 12px;
+  cursor: pointer;
+  &:hover {
+    text-decoration: underline;
+  }
+}

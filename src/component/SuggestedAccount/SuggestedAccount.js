@@ -6,13 +6,15 @@ import AccountItem from "./AccountItem";
 
 const cx = classNames.bind(styles)
 
-function SuggestedAccount({ label }) {
+function SuggestedAccount({ label, accountSg }) {
+
     return (
         <div className={cx('wrapper')}>
             <p className={cx('label')}>{label}</p>
-            <AccountItem />
-            <AccountItem />
-            <AccountItem />
+            {accountSg && accountSg.map((item) => {
+                return <AccountItem item={item} key={item.id} />
+            })}
+
             <p className={cx('see-all')}>See all</p>
         </div>
     );
