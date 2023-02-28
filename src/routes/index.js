@@ -13,6 +13,7 @@ import Live from "~/pages/Live";
 import Login from "~/pages/Login";
 import Forgot from "~/pages/Forgot";
 import Register from "~/pages/Register";
+import ShowCommentsVideo from "~/pages/ShowCommentsVideo";
 
 const publicRoutes = [
     { path: config.routes.forgot, component: Forgot, layout: null },
@@ -24,6 +25,7 @@ const publicRoutes = [
     { path: config.routes.search, component: Search, layout: null },
     { path: config.routes.upload, component: Upload, layout: HeaderFooter },
     { path: config.routes.LIVE, component: Live, layout: FullWidthLayout },
+    { path: config.routes.commentVideo, component: ShowCommentsVideo, layout: null }
 
 ]
 

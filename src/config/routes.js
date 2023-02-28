@@ -1,4 +1,5 @@
 const routes = {
+    commentVideo: '/:nickname/video/:id',
     login: '/login',
     register: '/register',
     forgot: '/forgot',
