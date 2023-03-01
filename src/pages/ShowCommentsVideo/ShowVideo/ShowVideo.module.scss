@@ -1,8 +1,10 @@
 .wrapper {
   position: relative;
-  background: linear-gradient(45deg, red, transparent);
-  height: fit-content;
+  // background: linear-gradient(45deg, red, transparent);
+  backdrop-filter: blur(1px);
+  height: 100vh;
   cursor: pointer;
+  user-select: none;
 }
 
 .video-wrapper {
@@ -46,9 +48,40 @@
     object-fit: contain;
     height: 100vh;
   }
-  div {
+}
+
+.seekbar-video {
+  position: absolute;
+  bottom: 10px;
+  left: 11px;
+  width: 95%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.progress {
+  font-size: 14px;
+  line-height: 24px;
+  color: rgb(255, 255, 255);
+  text-align: end;
+  margin-left: 4px;
+  white-space: nowrap;
+}
+
+.seekbar {
+  position: relative;
+  height: 3px;
+  flex: 1;
+  border: 1px white solid;
+  span {
     position: absolute;
-    bottom: 10px;
+    top: 0;
+    left: 0;
+    background-color: #fff;
+    height: 2px;
+    width: 0px;
   }
 }
 
