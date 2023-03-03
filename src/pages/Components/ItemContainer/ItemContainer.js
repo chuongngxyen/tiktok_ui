@@ -50,7 +50,7 @@ function ItemContainer({ soundvalue = 50, srcvideo = videos.test, videoItem }) {
     }
 
     const handleChangetoCommentVideo = () => {
-        navigate(`/@${videoItem.user.nickname}/video/${videoItem.id}`)
+        navigate(`/@${videoItem.user.nickname}/video/${videoItem.id}`, { state: { videoItem } })
     }
     useEffect(() => {
         if (playvideo) {
@@ -80,7 +80,10 @@ function ItemContainer({ soundvalue = 50, srcvideo = videos.test, videoItem }) {
                 <div className={cx('content')}>
                     <div className={cx('des-content')}>
                         <div className={cx('owner-content')}>
-                            <Link to="/" className={cx('name')}>{videoItem.user.first_name} {videoItem.user.last_name}<FontAwesomeIcon className={cx('check-icon')} icon={faCircleCheck} /></Link>
+                            <Link to="/" className={cx('name')}>
+                                {videoItem.user.first_name} {videoItem.user.last_name}
+                                {videoItem.user.tick && <FontAwesomeIcon className={cx('check-icon')} icon={faCircleCheck} />}
+                            </Link>
                             <Link to="/" className={cx('nickname')}>{videoItem.user.nickname}</Link>
                         </div>
                         <div className={cx('description')}>
@@ -93,7 +96,7 @@ function ItemContainer({ soundvalue = 50, srcvideo = videos.test, videoItem }) {
                             {videoItem.description}
                         </div>
                         <div className={cx('wrapper-music')}>
-                            <Button showmusic lefticon={<MusicIcon />}>BING CHILLING</Button>
+                            <Button showmusic lefticon={<MusicIcon />}>{videoItem.music ? (videoItem.music) : ('No music')}</Button>
                         </div>
                     </div>
 

@@ -8,7 +8,7 @@ import { Wrapper } from "../Popper";
 import styles from "./ShareItem.module.scss"
 
 const cx = classNames.bind(styles)
-const ShareItems = [
+const ShareItemsInitial = [
     {
         title: "Embed",
         icon: EmbedIcon,
@@ -59,8 +59,9 @@ const ShareItems = [
     },
 
 ]
-function ShareItem({ children, offset = [0, -5], placement = "top-start" }) {
+function ShareItem({ children, offset = [0, -5], placement = "top-start", ShareItems = ShareItemsInitial, showItem = 5 }) {
     const [showMore, setShowMore] = useState(false)
+
     return <>
         <Tippy
             interactive
@@ -70,7 +71,7 @@ function ShareItem({ children, offset = [0, -5], placement = "top-start" }) {
             render={(attrs) => (
                 <Wrapper className={cx('wrapper')}>
                     <div className={cx('items-wrapper')}>
-                        {ShareItems?.slice(0, 5).map((item, index) => {
+                        {ShareItems?.slice(0, showItem).map((item, index) => {
 
                             return <div className={cx('item-wrapper')} key={index}>
                                 <div className={cx('icon-item')}><item.icon /></div>
@@ -85,7 +86,9 @@ function ShareItem({ children, offset = [0, -5], placement = "top-start" }) {
                             </div>
                         })
                         }
-                        <div style={{ display: showMore ? 'none' : 'flex' }} className={cx('showmore-btn')} onClick={() => { setShowMore(true) }}><ArrowDownIcon /> </div>
+                        {(ShareItems?.slice(5))[0] && <div style={{ display: showMore ? 'none' : 'flex' }}
+                            className={cx('showmore-btn')}
+                            onClick={() => { setShowMore(true) }}><ArrowDownIcon /> </div>}
                     </div>
 
                 </Wrapper>

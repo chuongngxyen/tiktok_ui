@@ -7,10 +7,10 @@
   overflow: hidden;
 }
 .left-content {
-  min-width: 60%;
+  min-width: 65%;
 }
 .right-content {
-  min-width: 40%;
+  min-width: 35%;
 }
 
 @media screen and (max-width: 744px) {
@@ -19,6 +19,15 @@
   }
   .right-content {
     min-width: 20%;
+  }
+}
+
+@media screen and (max-width: 644px) {
+  .left-content {
+    min-width: 90%;
+  }
+  .right-content {
+    min-width: 10%;
   }
 }
 

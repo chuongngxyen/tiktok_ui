@@ -22,7 +22,7 @@ function Home() {
     return (
         <div className={cx('wrapper')}>
             <div className={cx('content')}>
-                {itemVideo.map((item) => {
+                {itemVideo && itemVideo.map((item) => {
                     return <ItemContainer key={item.id} soundvideo={soundvideo} videoItem={item} />
                 })}
 
