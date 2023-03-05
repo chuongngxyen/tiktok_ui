@@ -55,8 +55,8 @@
 }
 
 .follow-btn {
-  min-width: 87px;
-  min-height: 25px;
+  min-width: 100px;
+  min-height: 30px;
 }
 
 .des-content {
@@ -162,4 +162,53 @@
       background-color: rgba(22, 24, 35, 0.03);
     }
   }
+}
+
+.add-comment {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 15px 30px;
+}
+
+.input-comment {
+  background-color: rgba(22, 24, 35, 0.06);
+  border-radius: 4px;
+  flex: 1;
+  div {
+    display: flex;
+    align-items: center;
+    padding: 4px 3px;
+    padding-left: 5px;
+    input {
+      background-color: transparent;
+      flex: 1;
+      font-size: 14px;
+      line-height: 17px;
+      caret-color: var(--primary);
+    }
+    div {
+      display: flex;
+      column-gap: 10px;
+      svg {
+        cursor: pointer;
+      }
+    }
+  }
+}
+
+.post-btn {
+  color: var(--primary);
+}
+
+.comment-input {
+  &:focus {
+    .input-comment {
+      border: 1px solid rgba(1, 1, 6, 0.2);
+    }
+  }
+}
+
+.comment-input:not(:placeholder-shown) ~ .post-btn {
+  color: var(--primary);
 }

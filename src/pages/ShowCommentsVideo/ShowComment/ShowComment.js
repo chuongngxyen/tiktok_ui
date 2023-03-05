@@ -5,10 +5,13 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCircleCheck } from "@fortawesome/free-solid-svg-icons";
 
 import Button from "~/component/Button";
-import { CommentIcon, CopyLinkIcon, EmbedIcon, LoveIcon, MusicIcon, ShareEmailIcon, ShareFacebookIcon, ShareIcon, ShareLineIcon, ShareLinkedlnIcon, ShareMessageIcon, SharePinterestIcon, ShareRedditIcon, ShareTelegramIcon, ShareTwitterIcon, ShareWhatsAppIcon } from "~/component/Icon";
+import { AtIcon, CommentIcon, CopyLinkIcon, EmbedIcon, EmojiIcon, LoveIcon, MusicIcon, ShareEmailIcon, ShareFacebookIcon, ShareIcon, ShareLineIcon, ShareLinkedlnIcon, ShareMessageIcon, SharePinterestIcon, ShareRedditIcon, ShareTelegramIcon, ShareTwitterIcon, ShareWhatsAppIcon } from "~/component/Icon";
 import styled from "./ShowComment.module.scss"
 import ShareItem from "~/component/ShareItem";
 import { useLocation } from "react-router-dom";
+import Image from "~/component/Image";
+import { useEffect } from "react";
+import CommentItem from "./CommentItem";
 
 
 const cx = classNames.bind(styled)
@@ -66,6 +69,9 @@ const ShareItems = [
 ]
 function ShowComment({ videoItem }) {
     const location = useLocation()
+    useEffect(() => {
+        document.body.style = "overflow:hidden;"
+    }, []);
     return (
         <div className={cx('wrapper')}>
             <div className={cx('top-content')}>
@@ -73,15 +79,15 @@ function ShowComment({ videoItem }) {
                     <div className={cx('profile')}>
                         <div className={cx('info')}>
                             <div className={cx('avatar')}>
-                                <img src={videoItem.user.avatar} alt="error" />
+                                <Image src={videoItem.user.avatar} alt="error" />
                             </div>
                             <div className={cx('name')}>
                                 <div className={cx('username')}>
                                     {videoItem.user.first_name} {videoItem.user.last_name}
-                                    <FontAwesomeIcon className={cx('check-icon')} icon={faCircleCheck} />
+                                    {videoItem.user.tick && <FontAwesomeIcon className={cx('check-icon')} icon={faCircleCheck} />}
                                 </div>
                                 <div className={cx('nickname')}>
-                                    {videoItem.user.nickname}
+                                    {videoItem.user.nickname} ✪
                                     {' · '}20hours ago
                                 </div>
                             </div>
@@ -135,7 +141,23 @@ function ShowComment({ videoItem }) {
                 </div>
             </div>
             <div className={cx('comment-div')}>
-
+                <CommentItem />
+            </div>
+            <div className={cx('add-comment')}>
+                <div className={cx('input-comment')}>
+                    <div>
+                        <input className={cx('comment-input')} spellCheck={false} type="text" placeholder="Add comment..." />
+                        <div>
+                            <Tippy placement="top" content="Tag friends">
+                                <div><AtIcon width="1.3em" height="1.3em" /></div>
+                            </Tippy>
+                            <Tippy placement="top" content="Click to add emoji">
+                                <div><EmojiIcon width="1.3em" height="1.3em" /></div>
+                            </Tippy>
+                        </div>
+                    </div>
+                </div>
+                <Button className={cx('post-btn')}>Post</Button>
             </div>
         </div>
     );
